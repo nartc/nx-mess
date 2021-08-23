@@ -30,10 +30,10 @@
     "tslib": "2.3.1"
   },
   "devDependencies": {
-    "@nrwl/cli": "12.7.1",
+    "@nrwl/cli": "12.7.2",
     "@nrwl/nx-cloud": "12.3.10",
-    "@nrwl/tao": "12.7.1",
-    "@nrwl/workspace": "12.7.1",
+    "@nrwl/tao": "12.7.2",
+    "@nrwl/workspace": "12.7.2",
     "@types/node": "16.6.1",
     "dotenv": "10.0.0",
     "prettier": "2.3.2",

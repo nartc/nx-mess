@@ -1,7 +1,62 @@
 {
   "version": 2,
-  "projects": {},
+  "projects": {
+    "chat-api": {
+      "root": "apps/chat-api",
+      "sourceRoot": "apps/chat-api/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/chat-api",
+            "main": "apps/chat-api/src/main.ts",
+            "tsConfig": "apps/chat-api/tsconfig.app.json",
+            "assets": [
+              "apps/chat-api/src/assets"
+            ],
+            "generatePackageJson": true
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "chat-api:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/chat-api/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/chat-api"
+          ],
+          "options": {
+            "jestConfig": "apps/chat-api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  }
+    "defaultCollection": "@nrwl/nest"
+  },
+  "defaultProject": "chat-api"
 }

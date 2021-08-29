@@ -30,6 +30,13 @@
   "projects": {
     "chat-api": {
       "tags": []
+    },
+    "chat-web": {
+      "tags": ["scope:apps/chat-web", "type:app"]
+    },
+    "chat-web-e2e": {
+      "tags": [],
+      "implicitDependencies": ["chat-web"]
     }
   }
 }

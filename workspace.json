@@ -8,16 +8,12 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/chat-api",
             "main": "apps/chat-api/src/main.ts",
             "tsConfig": "apps/chat-api/tsconfig.app.json",
-            "assets": [
-              "apps/chat-api/src/assets"
-            ],
+            "assets": ["apps/chat-api/src/assets"],
             "generatePackageJson": true
           },
           "configurations": {
@@ -37,19 +33,137 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
+            "lintFilePatterns": ["apps/chat-api/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/chat-api"],
+          "options": {
+            "jestConfig": "apps/chat-api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "chat-web": {
+      "projectType": "application",
+      "root": "apps/chat-web",
+      "sourceRoot": "apps/chat-web/src",
+      "prefix": "chat",
+      "targets": {
+        "build": {
+          "executor": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/chat-web",
+            "index": "apps/chat-web/src/index.html",
+            "main": "apps/chat-web/src/main.ts",
+            "polyfills": "apps/chat-web/src/polyfills.ts",
+            "tsConfig": "apps/chat-web/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/chat-web/src/favicon.ico",
+              "apps/chat-web/src/assets"
+            ],
+            "styles": ["apps/chat-web/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/chat-web/src/environments/environment.ts",
+                  "with": "apps/chat-web/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "executor": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "chat-web:build:production"
+            },
+            "development": {
+              "browserTarget": "chat-web:build:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "proxyConfig": "apps/chat-web/proxy.conf.json"
+          }
+        },
+        "extract-i18n": {
+          "executor": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "chat-web:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
             "lintFilePatterns": [
-              "apps/chat-api/**/*.ts"
+              "apps/chat-web/src/**/*.ts",
+              "apps/chat-web/src/**/*.html"
             ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/chat-api"
-          ],
+          "outputs": ["coverage/apps/chat-web"],
           "options": {
-            "jestConfig": "apps/chat-api/jest.config.js",
+            "jestConfig": "apps/chat-web/jest.config.js",
             "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "chat-web-e2e": {
+      "root": "apps/chat-web-e2e",
+      "sourceRoot": "apps/chat-web-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/chat-web-e2e/cypress.json",
+            "devServerTarget": "chat-web:serve:development",
+            "tsConfig": "apps/chat-web-e2e/tsconfig.json"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "chat-web:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/chat-web-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -58,5 +172,21 @@
   "cli": {
     "defaultCollection": "@nrwl/nest"
   },
-  "defaultProject": "chat-api"
+  "defaultProject": "chat-api",
+  "generators": {
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  }
 }

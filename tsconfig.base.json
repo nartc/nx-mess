@@ -15,6 +15,15 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-mess/chat-api/auth0/data-access": [
+        "libs/chat-api/auth0/data-access/src/index.ts"
+      ],
+      "@nx-mess/chat-api/auth0/feature": [
+        "libs/chat-api/auth0/feature/src/index.ts"
+      ],
+      "@nx-mess/chat-api/auth0/utils": [
+        "libs/chat-api/auth0/utils/src/index.ts"
+      ],
       "@nx-mess/chat-api/config/feature": [
         "libs/chat-api/config/feature/src/index.ts"
       ],

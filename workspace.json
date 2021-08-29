@@ -46,6 +46,102 @@
         }
       }
     },
+    "chat-api-auth0-data-access": {
+      "root": "libs/chat-api/auth0/data-access",
+      "sourceRoot": "libs/chat-api/auth0/data-access/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/chat-api/auth0/data-access",
+            "tsConfig": "libs/chat-api/auth0/data-access/tsconfig.lib.json",
+            "packageJson": "libs/chat-api/auth0/data-access/package.json",
+            "main": "libs/chat-api/auth0/data-access/src/index.ts",
+            "assets": ["libs/chat-api/auth0/data-access/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/chat-api/auth0/data-access/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/chat-api/auth0/data-access"],
+          "options": {
+            "jestConfig": "libs/chat-api/auth0/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "chat-api-auth0-feature": {
+      "root": "libs/chat-api/auth0/feature",
+      "sourceRoot": "libs/chat-api/auth0/feature/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/chat-api/auth0/feature",
+            "tsConfig": "libs/chat-api/auth0/feature/tsconfig.lib.json",
+            "packageJson": "libs/chat-api/auth0/feature/package.json",
+            "main": "libs/chat-api/auth0/feature/src/index.ts",
+            "assets": ["libs/chat-api/auth0/feature/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/chat-api/auth0/feature/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/chat-api/auth0/feature"],
+          "options": {
+            "jestConfig": "libs/chat-api/auth0/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "chat-api-auth0-utils": {
+      "root": "libs/chat-api/auth0/utils",
+      "sourceRoot": "libs/chat-api/auth0/utils/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/chat-api/auth0/utils",
+            "tsConfig": "libs/chat-api/auth0/utils/tsconfig.lib.json",
+            "packageJson": "libs/chat-api/auth0/utils/package.json",
+            "main": "libs/chat-api/auth0/utils/src/index.ts",
+            "assets": ["libs/chat-api/auth0/utils/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/chat-api/auth0/utils/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/chat-api/auth0/utils"],
+          "options": {
+            "jestConfig": "libs/chat-api/auth0/utils/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "chat-api-config-feature": {
       "root": "libs/chat-api/config/feature",
       "sourceRoot": "libs/chat-api/config/feature/src",

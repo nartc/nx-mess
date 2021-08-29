@@ -133,6 +133,7 @@ import { Component } from '@angular/core';
         border-color: rgba(27, 31, 35, 0.35);
         background-position: -0.5em;
       }
+
       .github-star-badge .material-icons {
         height: 16px;
         width: 16px;

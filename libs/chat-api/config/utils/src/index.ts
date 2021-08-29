@@ -1,1 +1,2 @@
-export * from './lib/chat-api-config-utils.module';
+export * from './lib/di';
+export * from './lib/configurations';

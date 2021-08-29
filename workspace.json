@@ -46,6 +46,70 @@
         }
       }
     },
+    "chat-api-config-feature": {
+      "root": "libs/chat-api/config/feature",
+      "sourceRoot": "libs/chat-api/config/feature/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/chat-api/config/feature",
+            "tsConfig": "libs/chat-api/config/feature/tsconfig.lib.json",
+            "packageJson": "libs/chat-api/config/feature/package.json",
+            "main": "libs/chat-api/config/feature/src/index.ts",
+            "assets": ["libs/chat-api/config/feature/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/chat-api/config/feature/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/chat-api/config/feature"],
+          "options": {
+            "jestConfig": "libs/chat-api/config/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "chat-api-config-utils": {
+      "root": "libs/chat-api/config/utils",
+      "sourceRoot": "libs/chat-api/config/utils/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/chat-api/config/utils",
+            "tsConfig": "libs/chat-api/config/utils/tsconfig.lib.json",
+            "packageJson": "libs/chat-api/config/utils/package.json",
+            "main": "libs/chat-api/config/utils/src/index.ts",
+            "assets": ["libs/chat-api/config/utils/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/chat-api/config/utils/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/chat-api/config/utils"],
+          "options": {
+            "jestConfig": "libs/chat-api/config/utils/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "chat-web": {
       "projectType": "application",
       "root": "apps/chat-web",
@@ -164,6 +228,47 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/chat-web-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "chat-web-shell-feature": {
+      "projectType": "library",
+      "root": "libs/chat-web/shell-feature",
+      "sourceRoot": "libs/chat-web/shell-feature/src",
+      "prefix": "chat",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/chat-web/shell-feature"],
+          "options": {
+            "project": "libs/chat-web/shell-feature/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/chat-web/shell-feature/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/chat-web/shell-feature/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/chat-web/shell-feature"],
+          "options": {
+            "jestConfig": "libs/chat-web/shell-feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/chat-web/shell-feature/src/**/*.ts",
+              "libs/chat-web/shell-feature/src/**/*.html"
+            ]
           }
         }
       }

@@ -14,7 +14,17 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@nx-mess/chat-api/config/feature": [
+        "libs/chat-api/config/feature/src/index.ts"
+      ],
+      "@nx-mess/chat-api/config/utils": [
+        "libs/chat-api/config/utils/src/index.ts"
+      ],
+      "@nx-mess/chat-web/shell-feature": [
+        "libs/chat-web/shell-feature/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

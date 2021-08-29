@@ -31,12 +31,21 @@
     "chat-api": {
       "tags": []
     },
+    "chat-api-config-feature": {
+      "tags": ["scope:chat-api", "type:feature"]
+    },
+    "chat-api-config-utils": {
+      "tags": ["scope:chat-api", "type:feature"]
+    },
     "chat-web": {
       "tags": ["scope:apps/chat-web", "type:app"]
     },
     "chat-web-e2e": {
       "tags": [],
       "implicitDependencies": ["chat-web"]
+    },
+    "chat-web-shell-feature": {
+      "tags": ["scope:chat-web", "type:feature"]
     }
   }
 }

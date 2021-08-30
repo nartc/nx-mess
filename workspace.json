@@ -43,6 +43,13 @@
             "jestConfig": "apps/chat-api/jest.config.js",
             "passWithNoTests": true
           }
+        },
+        "serve-dev": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": ["nx serve chat-api", "docker-compose up"],
+            "parallel": true
+          }
         }
       }
     },
@@ -201,6 +208,70 @@
           "outputs": ["coverage/libs/chat-api/config/utils"],
           "options": {
             "jestConfig": "libs/chat-api/config/utils/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "chat-api-shared-data-access": {
+      "root": "libs/chat-api/shared/data-access",
+      "sourceRoot": "libs/chat-api/shared/data-access/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/chat-api/shared/data-access",
+            "tsConfig": "libs/chat-api/shared/data-access/tsconfig.lib.json",
+            "packageJson": "libs/chat-api/shared/data-access/package.json",
+            "main": "libs/chat-api/shared/data-access/src/index.ts",
+            "assets": ["libs/chat-api/shared/data-access/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/chat-api/shared/data-access/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/chat-api/shared/data-access"],
+          "options": {
+            "jestConfig": "libs/chat-api/shared/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "chat-api-shared-utils": {
+      "root": "libs/chat-api/shared/utils",
+      "sourceRoot": "libs/chat-api/shared/utils/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/chat-api/shared/utils",
+            "tsConfig": "libs/chat-api/shared/utils/tsconfig.lib.json",
+            "packageJson": "libs/chat-api/shared/utils/package.json",
+            "main": "libs/chat-api/shared/utils/src/index.ts",
+            "assets": ["libs/chat-api/shared/utils/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/chat-api/shared/utils/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/chat-api/shared/utils"],
+          "options": {
+            "jestConfig": "libs/chat-api/shared/utils/jest.config.js",
             "passWithNoTests": true
           }
         }

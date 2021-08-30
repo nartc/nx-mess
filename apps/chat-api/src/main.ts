@@ -2,6 +2,9 @@ import { HttpStatus, Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppConfig, appConfiguration } from '@nx-mess/chat-api/config/utils';
 
+import * as compression from 'compression';
+import * as helmet from 'helmet';
+
 import { AppModule } from './app/app.module';
 
 async function bootstrap() {
@@ -9,6 +12,9 @@ async function bootstrap() {
   const appConfig = app.get<AppConfig>(appConfiguration.KEY);
 
   app.enableCors();
+
+  app.use(compression());
+  app.use(helmet());
 
   const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);

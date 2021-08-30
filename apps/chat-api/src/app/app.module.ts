@@ -6,6 +6,7 @@ import {
   MongoConfig,
   mongoConfiguration,
 } from '@nx-mess/chat-api/config/utils';
+import { ChatApiUserFeatureModule } from '@nx-mess/chat-api/user/feature';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import {
       }),
       inject: [mongoConfiguration.KEY],
     }),
+    ChatApiUserFeatureModule,
   ],
 })
 export class AppModule {}

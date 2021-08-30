@@ -52,6 +52,12 @@
     "chat-api-shared-utils": {
       "tags": ["scope:chat-api", "type:utils"]
     },
+    "chat-api-user-data-access": {
+      "tags": ["scope:chat-api", "type:data-access"]
+    },
+    "chat-api-user-feature": {
+      "tags": ["scope:chat-api", "type:feature"]
+    },
     "chat-web": {
       "tags": ["scope:apps/chat-web", "type:app"]
     },

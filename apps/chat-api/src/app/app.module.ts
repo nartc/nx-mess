@@ -1,3 +1,5 @@
+import { classes } from '@automapper/classes';
+import { AutomapperModule } from '@automapper/nestjs';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ChatApiAuth0FeatureModule } from '@nx-mess/chat-api/auth0/feature';
@@ -18,6 +20,15 @@ import { ChatApiUserFeatureModule } from '@nx-mess/chat-api/user/feature';
         dbName: mongoConfig.dbName,
       }),
       inject: [mongoConfiguration.KEY],
+    }),
+    AutomapperModule.forRoot({
+      singular: true,
+      options: [
+        {
+          name: 'classes',
+          pluginInitializer: classes,
+        },
+      ],
     }),
     ChatApiUserFeatureModule,
   ],

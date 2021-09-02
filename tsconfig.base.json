@@ -33,6 +33,9 @@
       "@nx-mess/chat-api/shared/data-access": [
         "libs/chat-api/shared/data-access/src/index.ts"
       ],
+      "@nx-mess/chat-api/shared/mappings": [
+        "libs/chat-api/shared/mappings/src/index.ts"
+      ],
       "@nx-mess/chat-api/shared/utils": [
         "libs/chat-api/shared/utils/src/index.ts"
       ],

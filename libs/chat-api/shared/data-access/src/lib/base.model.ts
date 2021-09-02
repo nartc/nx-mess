@@ -1,3 +1,4 @@
+import { AutoMap } from '@automapper/classes';
 import {
   buildSchema,
   modelOptions,
@@ -17,11 +18,15 @@ import {
 })
 export class BaseModel {
   @prop()
+  @AutoMap()
   createdAt!: Date;
   @prop()
+  @AutoMap()
   updatedAt!: Date;
   @prop({ default: true })
+  @AutoMap()
   active!: boolean;
+  @AutoMap()
   id!: string;
 
   static get feature() {

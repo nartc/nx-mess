@@ -117,38 +117,6 @@
         }
       }
     },
-    "chat-api-auth0-utils": {
-      "root": "libs/chat-api/auth0/utils",
-      "sourceRoot": "libs/chat-api/auth0/utils/src",
-      "projectType": "library",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/libs/chat-api/auth0/utils",
-            "tsConfig": "libs/chat-api/auth0/utils/tsconfig.lib.json",
-            "packageJson": "libs/chat-api/auth0/utils/package.json",
-            "main": "libs/chat-api/auth0/utils/src/index.ts",
-            "assets": ["libs/chat-api/auth0/utils/*.md"]
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/chat-api/auth0/utils/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/chat-api/auth0/utils"],
-          "options": {
-            "jestConfig": "libs/chat-api/auth0/utils/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "chat-api-config-feature": {
       "root": "libs/chat-api/config/feature",
       "sourceRoot": "libs/chat-api/config/feature/src",

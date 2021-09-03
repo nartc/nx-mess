@@ -37,9 +37,6 @@
     "chat-api-auth0-feature": {
       "tags": ["scope:chat-api", "type:feature"]
     },
-    "chat-api-auth0-utils": {
-      "tags": ["scope:chat-api", "type:utils"]
-    },
     "chat-api-config-feature": {
       "tags": ["scope:chat-api", "type:feature"]
     },

@@ -1,7 +1,7 @@
 import { ExecutionContext, Injectable } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { AuthGuard as PassportAuthGuard } from '@nestjs/passport';
-import { IS_PUBLIC_ENDPOINT } from '@nx-mess/chat-api/auth0/utils';
+import { ALLOW_ANONYMOUS } from '@nx-mess/chat-api/shared/utils';
 import type { Observable } from 'rxjs';
 
 @Injectable()
@@ -13,12 +13,13 @@ export class AuthGuard extends PassportAuthGuard('jwt') {
   canActivate(
     context: ExecutionContext
   ): boolean | Promise<boolean> | Observable<boolean> {
-    const isPublic = this.reflector.getAllAndOverride<boolean>(
-      IS_PUBLIC_ENDPOINT,
-      [context.getHandler(), context.getClass()]
-    );
+    const isAllowAnonymous =
+      this.reflector.getAllAndOverride<boolean>(ALLOW_ANONYMOUS, [
+        context.getHandler(),
+        context.getClass(),
+      ]) || false;
 
-    if (isPublic) return true;
+    if (isAllowAnonymous) return true;
     return super.canActivate(context);
   }
 }

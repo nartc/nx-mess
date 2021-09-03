@@ -4,8 +4,7 @@ import { ExpressAdapter } from '@bull-board/express';
 import { HttpStatus, Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppConfig, appConfiguration } from '@nx-mess/chat-api/config/utils';
-import { USER_QUEUE } from '@nx-mess/chat-api/shared/utils';
-import { Queue } from 'bull';
+import { getFullQueueName, USER_QUEUE } from '@nx-mess/chat-api/shared/utils';
 
 import * as compression from 'compression';
 import * as helmet from 'helmet';
@@ -19,7 +18,7 @@ async function bootstrap() {
   const appConfig = app.get<AppConfig>(appConfiguration.KEY);
 
   const queues = [USER_QUEUE].map(
-    (queueName) => new BullAdapter(app.get<Queue>(`BullQueue_${queueName}`))
+    (queueName) => new BullAdapter(app.get(getFullQueueName(queueName)))
   );
 
   app.enableCors();
@@ -38,12 +37,13 @@ async function bootstrap() {
   });
 
   // BullBoard
+  const bullBoardPath = '/admin/queues';
   createBullBoard({
     queues,
     serverAdapter: bullServerAdapter,
   });
-  bullServerAdapter.setBasePath(`/admin/queues`);
-  app.use(`/admin/queues`, bullServerAdapter.getRouter());
+  bullServerAdapter.setBasePath(bullBoardPath);
+  app.use(bullBoardPath, bullServerAdapter.getRouter());
 
   await app.listen(appConfig.port, () => {
     Logger.log(`Listening on: ${appConfig.domain}/${globalPrefix}`);

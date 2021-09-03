@@ -4,13 +4,19 @@ import {
   appConfiguration,
   auth0Configuration,
   mongoConfiguration,
+  redisConfiguration,
 } from '@nx-mess/chat-api/config/utils';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      load: [appConfiguration, auth0Configuration, mongoConfiguration],
+      load: [
+        appConfiguration,
+        auth0Configuration,
+        mongoConfiguration,
+        redisConfiguration,
+      ],
     }),
   ],
 })

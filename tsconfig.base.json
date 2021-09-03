@@ -45,6 +45,7 @@
       "@nx-mess/chat-api/user/feature": [
         "libs/chat-api/user/feature/src/index.ts"
       ],
+      "@nx-mess/chat-api/user/utils": ["libs/chat-api/user/utils/src/index.ts"],
       "@nx-mess/chat-web/shell-feature": [
         "libs/chat-web/shell-feature/src/index.ts"
       ]

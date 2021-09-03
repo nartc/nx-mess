@@ -373,6 +373,38 @@
         }
       }
     },
+    "chat-api-user-utils": {
+      "root": "libs/chat-api/user/utils",
+      "sourceRoot": "libs/chat-api/user/utils/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/chat-api/user/utils",
+            "tsConfig": "libs/chat-api/user/utils/tsconfig.lib.json",
+            "packageJson": "libs/chat-api/user/utils/package.json",
+            "main": "libs/chat-api/user/utils/src/index.ts",
+            "assets": ["libs/chat-api/user/utils/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/chat-api/user/utils/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/chat-api/user/utils"],
+          "options": {
+            "jestConfig": "libs/chat-api/user/utils/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "chat-web": {
       "projectType": "application",
       "root": "apps/chat-web",

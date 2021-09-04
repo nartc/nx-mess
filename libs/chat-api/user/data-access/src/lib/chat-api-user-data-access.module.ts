@@ -26,6 +26,6 @@ import { UserService } from './user.service';
     }),
   ],
   providers: [UserService, UserConsumer],
-  exports: [UserService],
+  exports: [UserService, BullModule],
 })
 export class ChatApiUserDataAccessModule {}

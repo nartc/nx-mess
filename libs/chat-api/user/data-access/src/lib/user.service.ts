@@ -1,5 +1,5 @@
 import { InjectMapper } from '@automapper/nestjs';
-import { Mapper } from '@automapper/types';
+import type { Mapper } from '@automapper/types';
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { BaseService, ModelType } from '@nx-mess/chat-api/shared/data-access';

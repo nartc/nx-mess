@@ -11,6 +11,7 @@ import {
   RedisConfig,
   redisConfiguration,
 } from '@nx-mess/chat-api/config/utils';
+import { ChatApiMessageFeatureModule } from '@nx-mess/chat-api/message/feature';
 import { ChatApiUserFeatureModule } from '@nx-mess/chat-api/user/feature';
 
 @Module({
@@ -43,6 +44,7 @@ import { ChatApiUserFeatureModule } from '@nx-mess/chat-api/user/feature';
       inject: [redisConfiguration.KEY],
     }),
     ChatApiUserFeatureModule,
+    ChatApiMessageFeatureModule,
   ],
 })
 export class AppModule {}

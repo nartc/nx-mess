@@ -27,6 +27,12 @@
       "@nx-mess/chat-api/config/utils": [
         "libs/chat-api/config/utils/src/index.ts"
       ],
+      "@nx-mess/chat-api/message/data-access": [
+        "libs/chat-api/message/data-access/src/index.ts"
+      ],
+      "@nx-mess/chat-api/message/feature": [
+        "libs/chat-api/message/feature/src/index.ts"
+      ],
       "@nx-mess/chat-api/shared/data-access": [
         "libs/chat-api/shared/data-access/src/index.ts"
       ],

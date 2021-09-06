@@ -33,6 +33,12 @@
       "@nx-mess/chat-api/message/feature": [
         "libs/chat-api/message/feature/src/index.ts"
       ],
+      "@nx-mess/chat-api/notification/data-access": [
+        "libs/chat-api/notification/data-access/src/index.ts"
+      ],
+      "@nx-mess/chat-api/notification/feature": [
+        "libs/chat-api/notification/feature/src/index.ts"
+      ],
       "@nx-mess/chat-api/shared/data-access": [
         "libs/chat-api/shared/data-access/src/index.ts"
       ],

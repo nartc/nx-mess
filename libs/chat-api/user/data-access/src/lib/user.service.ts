@@ -2,8 +2,11 @@ import { InjectMapper } from '@automapper/nestjs';
 import type { Mapper } from '@automapper/types';
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { BaseService, ModelType } from '@nx-mess/chat-api/shared/data-access';
-import { Auth0UserDto } from '@nx-mess/chat-api/shared/mappings';
+import {
+  Auth0UserDto,
+  BaseService,
+  ModelType,
+} from '@nx-mess/chat-api/shared/data-access';
 import {
   CREATE_USER_FROM_AUTH0,
   InjectUserQueue,

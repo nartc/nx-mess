@@ -49,6 +49,12 @@
     "chat-api-message-feature": {
       "tags": ["scope:chat-api", "type:feature"]
     },
+    "chat-api-notification-data-access": {
+      "tags": ["scope:chat-api", "type:data-access"]
+    },
+    "chat-api-notification-feature": {
+      "tags": ["scope:chat-api", "type:feature"]
+    },
     "chat-api-shared-data-access": {
       "tags": ["scope:chat-api", "type:data-access"]
     },

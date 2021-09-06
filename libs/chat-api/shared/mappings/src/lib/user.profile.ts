@@ -8,8 +8,8 @@ import {
 import { AutomapperProfile, InjectMapper } from '@automapper/nestjs';
 import { Mapper, MappingProfile } from '@automapper/types';
 import { Injectable } from '@nestjs/common';
+import { Auth0UserDto } from '@nx-mess/chat-api/shared/data-access';
 import { User } from '@nx-mess/chat-api/user/data-access';
-import { Auth0UserDto } from '../dtos/user/auth0-user.dto';
 
 @Injectable()
 export class UserProfile extends AutomapperProfile {

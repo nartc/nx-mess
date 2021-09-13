@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
+import { ChatApiNotificationDataAccessModule } from '@nx-mess/chat-api/notification/data-access';
 
 @Module({
-  controllers: [],
+  imports: [ChatApiNotificationDataAccessModule],
   providers: [],
   exports: [],
 })

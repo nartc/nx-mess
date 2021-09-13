@@ -17,10 +17,6 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const appConfig = app.get<AppConfig>(appConfiguration.KEY);
 
-  const queues = [USER_QUEUE].map(
-    (queueName) => new BullAdapter(app.get(getFullQueueName(queueName)))
-  );
-
   app.enableCors();
 
   app.use(compression());
@@ -37,6 +33,9 @@ async function bootstrap() {
   });
 
   // BullBoard
+  const queues = [USER_QUEUE].map(
+    (queueName) => new BullAdapter(app.get(getFullQueueName(queueName)))
+  );
   const bullBoardPath = '/admin/queues';
   createBullBoard({
     queues,

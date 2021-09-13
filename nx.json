@@ -81,6 +81,9 @@
       "tags": [],
       "implicitDependencies": ["chat-web"]
     },
+    "chat-web-home-feature": {
+      "tags": ["scope:chat-web", "type:feature"]
+    },
     "chat-web-shell-feature": {
       "tags": ["scope:chat-web", "type:feature"]
     },

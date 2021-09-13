@@ -1,11 +1,15 @@
-import { createSlice, noopReducer } from 'ngrx-slice';
+import { createSlice, noopReducer, PayloadAction } from 'ngrx-slice';
 
 export interface AuthState {
   isLoggedIn: boolean;
+  user: import('@auth0/auth0-spa-js').User | null | undefined;
 }
+
+export type AuthUser = AuthState['user'];
 
 export const initialState: AuthState = {
   isLoggedIn: false,
+  user: null,
 };
 
 export const {
@@ -17,12 +21,22 @@ export const {
   initialState,
   reducers: {
     login: {
-      success: (state) => {},
+      success: (state, action: PayloadAction<{ user: AuthUser }>) => {
+        state.user = action.user;
+        state.isLoggedIn = true;
+      },
       trigger: noopReducer(),
     },
     logout: {
       success: (state) => {
         state = initialState;
+      },
+      trigger: noopReducer(),
+    },
+    check: {
+      success: (state, action: PayloadAction<{ user: AuthUser }>) => {
+        state.user = action.user;
+        state.isLoggedIn = !!action.user;
       },
       trigger: noopReducer(),
     },

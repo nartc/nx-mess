@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'chat-root',
-  templateUrl: './app.component.html',
+  selector: 'nxc-root',
+  template: `
+    <router-outlet></router-outlet>
+  `,
   styles: [],
 })
-export class AppComponent {
-  title = 'chat-web';
-}
+export class AppComponent {}

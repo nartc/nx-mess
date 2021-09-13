@@ -93,6 +93,9 @@
     "shared-environments": {
       "tags": []
     },
+    "shared-store": {
+      "tags": []
+    },
     "shared-styles": {
       "tags": []
     }

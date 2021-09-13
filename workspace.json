@@ -749,6 +749,47 @@
         }
       }
     },
+    "shared-store": {
+      "projectType": "library",
+      "root": "libs/shared/store",
+      "sourceRoot": "libs/shared/store/src",
+      "prefix": "nx-mess",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/shared/store"],
+          "options": {
+            "project": "libs/shared/store/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/shared/store/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/shared/store/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/store"],
+          "options": {
+            "jestConfig": "libs/shared/store/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/store/src/**/*.ts",
+              "libs/shared/store/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "shared-styles": {
       "root": "libs/shared/styles",
       "sourceRoot": "libs/shared/styles/src",

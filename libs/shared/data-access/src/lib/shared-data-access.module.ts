@@ -4,6 +4,7 @@ import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '@nx-mess/shared/environments';
+import { AuthEffect, authName, authReducer } from '@nx-mess/shared/store';
 import { logger } from './logger';
 import { CustomRouterStateSerializer } from './router-state.serializer';
 
@@ -12,12 +13,13 @@ import { CustomRouterStateSerializer } from './router-state.serializer';
     StoreModule.forRoot(
       {
         router: routerReducer,
+        [authName]: authReducer,
       },
       {
         metaReducers: environment.production ? [] : [logger],
       }
     ),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([AuthEffect]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,

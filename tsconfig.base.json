@@ -61,6 +61,7 @@
       "@nx-mess/shared/assets": ["libs/shared/assets/src/index.ts"],
       "@nx-mess/shared/data-access": ["libs/shared/data-access/src/index.ts"],
       "@nx-mess/shared/environments": ["libs/shared/environments/src/index.ts"],
+      "@nx-mess/shared/store": ["libs/shared/store/src/index.ts"],
       "@nx-mess/shared/styles": ["libs/shared/styles/src/index.ts"]
     }
   },

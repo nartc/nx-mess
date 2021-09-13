@@ -12,6 +12,7 @@ import {
   redisConfiguration,
 } from '@nx-mess/chat-api/config/utils';
 import { ChatApiMessageFeatureModule } from '@nx-mess/chat-api/message/feature';
+import { ChatApiNotificationFeatureModule } from '@nx-mess/chat-api/notification/feature';
 import { ChatApiUserFeatureModule } from '@nx-mess/chat-api/user/feature';
 
 @Module({
@@ -45,6 +46,7 @@ import { ChatApiUserFeatureModule } from '@nx-mess/chat-api/user/feature';
     }),
     ChatApiUserFeatureModule,
     ChatApiMessageFeatureModule,
+    ChatApiNotificationFeatureModule,
   ],
 })
 export class AppModule {}

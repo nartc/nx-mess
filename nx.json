@@ -87,6 +87,9 @@
     "shared-assets": {
       "tags": ["scope:shared", "type:assets"]
     },
+    "shared-data-access": {
+      "tags": []
+    },
     "shared-environments": {
       "tags": []
     },

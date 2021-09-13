@@ -1849,6 +1849,41 @@
     object-hash "2.2.0"
     tslib "2.3.0"
 
+"@ngrx/component-store@12.4.0":
+  version "12.4.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/component-store/-/component-store-12.4.0.tgz#92da69cb8198c0a63ab5f25eb05551c729876f1b"
+  integrity sha512-qB4qcrAeHgNdQC1x0Q1rAcuD0KPMZ0PSQzGlZCv+BYXJAj08XIGcnN34ATALUlvxgKLroLd3lhXWeMZc8PLSNA==
+  dependencies:
+    tslib "^2.0.0"
+
+"@ngrx/effects@12.4.0":
+  version "12.4.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-12.4.0.tgz#b96a5cd397ee00e4d52e476ba13f4be2affb90f1"
+  integrity sha512-9N6c+Oj3Rghoi4JnVxqgZ581BYNCLxHK20CVX3WiiEkMXL1cyYNuXVB9+hQHJ6OSME0Jo5YoXzjsIrzFsnMZCw==
+  dependencies:
+    tslib "^2.0.0"
+
+"@ngrx/router-store@12.4.0":
+  version "12.4.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/router-store/-/router-store-12.4.0.tgz#55b8f3be90211fbfdc24cf86296e9920ed59ab2c"
+  integrity sha512-X+EVdB98F9bn+1wFq7oxJW2eTV2c69D0J6Aw/X6Axph6Ntb/8JUWcOkUw7T6CWon8f6gJxa5hNJwPLU66sPyxw==
+  dependencies:
+    tslib "^2.0.0"
+
+"@ngrx/store-devtools@12.4.0":
+  version "12.4.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store-devtools/-/store-devtools-12.4.0.tgz#dc07ab468c6943d5e4a84a3d4321d14026e8112c"
+  integrity sha512-mzT/R2gD4WaTgo1CJzRCiBeJrAcDphjqWDfIrB0Ny+Bd7OGVUsbf1jIN9dRJAA9iDXJewDiLUjKIAn/emnwg9Q==
+  dependencies:
+    tslib "^2.0.0"
+
+"@ngrx/store@12.4.0":
+  version "12.4.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-12.4.0.tgz#5c3fb2d6fcc600db6914e955deff01a5bb9f934b"
+  integrity sha512-+kC2Ro2BmsxghHQhq4u+9HGE4BPy739werimspuqz37yUG1G3CdxMp0wuoD2M5371spUTFsXOtjKzpifOYbWbg==
+  dependencies:
+    tslib "^2.0.0"
+
 "@ngtools/webpack@12.2.5":
   version "12.2.5"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-12.2.5.tgz#f0077e302434b00bc67924142c88a844f320f7b9"
@@ -6770,6 +6805,11 @@ image-size@~0.5.0:
   resolved "https://registry.yarnpkg.com/image-size/-/image-size-0.5.5.tgz#09dfd4ab9d20e29eb1c3e80b8990378df9e3cb9c"
   integrity sha1-Cd/Uq50g4p6xw+gLiZA3jfnjy5w=
 
+immer@9.0.6:
+  version "9.0.6"
+  resolved "https://registry.yarnpkg.com/immer/-/immer-9.0.6.tgz#7a96bf2674d06c8143e327cbf73539388ddf1a73"
+  integrity sha512-G95ivKpy+EvVAnAab4fVa4YGYn24J1SpEktnJX7JJ45Bd7xqME/SCplFzYFmTbrkwZbQ4xJK1xMTUYBkN6pWsQ==
+
 import-cwd@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/import-cwd/-/import-cwd-3.0.0.tgz#20845547718015126ea9b3676b7592fb8bd4cf92"
@@ -8943,6 +8983,20 @@ ng-packagr@12.2.1:
     rxjs "^6.5.0"
     sass "^1.32.8"
     stylus "^0.54.8"
+
+ngrx-immer@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/ngrx-immer/-/ngrx-immer-1.0.1.tgz#a33d2ae6eba2cb3f93d5541e3962dbda614d0de7"
+  integrity sha512-2J+2AfcJY2GQbHLCbojZFsU1RuqKlUgpYm/mKnuMCyeYObsGd5rrK2UgLVUZJYZNTG97rNEpg3vDRl0kKwSQhg==
+  dependencies:
+    tslib "^2.2.0"
+
+ngrx-slice@3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/ngrx-slice/-/ngrx-slice-3.1.1.tgz#4cfdfae3dc0ebc82121aa3a7a050f2ffbf9d2c19"
+  integrity sha512-R8DS1g1Xx9hVMvknyAWBH9AOjToIsLmiw0WfKNYEXz8ohIpmJ4dhB4MuAEC2Ri/EWvLk4jyGRJ/ivkypXNth8A==
+  dependencies:
+    tslib "^2.1.0"
 
 nice-napi@^1.0.2:
   version "1.0.2"
@@ -12213,7 +12267,7 @@ tslib@2.3.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.3.0.tgz#803b8cdab3e12ba581a4ca41c8839bbb0dacb09e"
   integrity sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==
 
-tslib@2.3.1, tslib@^2.0.0, tslib@^2.2.0, tslib@^2.3.0:
+tslib@2.3.1, tslib@^2.0.0, tslib@^2.1.0, tslib@^2.2.0, tslib@^2.3.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
   integrity sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==

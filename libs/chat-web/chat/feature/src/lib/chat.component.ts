@@ -1,19 +1,21 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { AuthSelectors } from '@nx-mess/shared/store';
+import { ChatStore } from './chat.store';
 
 @Component({
   selector: 'nxc-chat',
   template: `
-    <pre>{{ user$ | async | json }}</pre>
+    <ng-container *ngrxLet="vm$; let vm">
+      <pre>{{ vm | json }}</pre>
+    </ng-container>
   `,
   styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [ChatStore],
 })
 export class ChatComponent implements OnInit {
-  readonly user$ = this.store.select(AuthSelectors.selectUser);
+  readonly vm$ = this.chatStore.vm$;
 
-  constructor(private store: Store) {}
+  constructor(private chatStore: ChatStore) {}
 
   ngOnInit(): void {}
 }

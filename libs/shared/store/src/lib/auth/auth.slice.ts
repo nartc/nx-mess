@@ -8,6 +8,8 @@ export interface AuthState {
 
 export type AuthUser = AuthState['user'];
 
+export type NonNullAuthUser = NonNullable<AuthUser>;
+
 export const initialState: AuthState = {
   isLoggedIn: false,
   user: null,
@@ -47,7 +49,7 @@ export const {
 
 const selectUser = createSelector(
   selectors.selectAuthState,
-  (authState) => authState.user as NonNullable<AuthUser>
+  (authState) => authState.user as NonNullAuthUser
 );
 
 export const AuthSelectors = { selectUser };

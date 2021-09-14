@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map, switchMap, tap } from 'rxjs';
@@ -6,21 +7,21 @@ import { AuthActions } from './auth.slice';
 
 @Injectable()
 export class AuthEffect {
-  constructor(private actions$: Actions, private auth: AuthService) {}
+  constructor(
+    private actions$: Actions,
+    private auth: AuthService,
+    private router: Router
+  ) {}
 
   readonly login$ = createEffect(
     () =>
       this.actions$.pipe(
         ofType(AuthActions.login.trigger),
         tap(() => {
-          this.auth.loginWithRedirect();
+          this.auth.loginWithRedirect({ prompt: 'consent' });
         })
       ),
     { dispatch: false }
-  );
-
-  readonly loginSuccess$ = createEffect(() =>
-    this.actions$.pipe(ofType(AuthActions.login.success))
   );
 
   readonly check$ = createEffect(() =>
@@ -32,5 +33,18 @@ export class AuthEffect {
         )
       )
     )
+  );
+
+  readonly checkSuccess$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(AuthActions.check.success),
+        tap(({ user }) => {
+          if (!!user) {
+            void this.router.navigate(['/chat']);
+          }
+        })
+      ),
+    { dispatch: false }
   );
 }

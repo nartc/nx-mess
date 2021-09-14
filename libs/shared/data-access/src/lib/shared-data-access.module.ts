@@ -5,15 +5,21 @@ import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '@nx-mess/shared/environments';
-import { AuthEffect, authName, authReducer } from '@nx-mess/shared/store';
+import {
+  AuthEffect,
+  authName,
+  authReducer,
+  CustomRouterStateSerializer,
+  routerFeatureKey,
+} from '@nx-mess/shared/store';
 import { logger } from './logger';
-import { CustomRouterStateSerializer } from './router-state.serializer';
 
 @NgModule({
   imports: [
     AuthModule.forRoot({
       domain: environment.auth.domain,
       clientId: environment.auth.clientId,
+      useRefreshTokens: true,
       httpInterceptor: {
         allowedList: [
           {
@@ -25,7 +31,7 @@ import { CustomRouterStateSerializer } from './router-state.serializer';
     }),
     StoreModule.forRoot(
       {
-        router: routerReducer,
+        [routerFeatureKey]: routerReducer,
         [authName]: authReducer,
       },
       {

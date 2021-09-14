@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AuthActions } from '@nx-mess/shared/store';
 
@@ -13,15 +13,10 @@ import { AuthActions } from '@nx-mess/shared/store';
       Login
     </button>
   `,
-  styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   constructor(private store: Store) {}
-
-  ngOnInit(): void {
-    this.store.dispatch(AuthActions.check.trigger());
-  }
 
   onLogin() {
     this.store.dispatch(AuthActions.login.trigger());

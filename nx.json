@@ -77,6 +77,9 @@
       "tags": ["scope:apps/chat-web", "type:app"],
       "implicitDependencies": ["shared-assets", "shared-styles"]
     },
+    "chat-web-chat-feature": {
+      "tags": ["scope:chat-web", "type:feature"]
+    },
     "chat-web-e2e": {
       "tags": [],
       "implicitDependencies": ["chat-web"]

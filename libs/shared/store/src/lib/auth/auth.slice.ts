@@ -1,3 +1,4 @@
+import { createSelector } from '@ngrx/store';
 import { createSlice, noopReducer, PayloadAction } from 'ngrx-slice';
 
 export interface AuthState {
@@ -14,6 +15,7 @@ export const initialState: AuthState = {
 
 export const {
   actions: AuthActions,
+  selectors,
   name: authName,
   reducer: authReducer,
 } = createSlice({
@@ -42,3 +44,10 @@ export const {
     },
   },
 });
+
+const selectUser = createSelector(
+  selectors.selectAuthState,
+  (authState) => authState.user as NonNullable<AuthUser>
+);
+
+export const AuthSelectors = { selectUser };

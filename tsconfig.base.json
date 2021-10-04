@@ -73,6 +73,9 @@
       "@nx-mess/chat-web/home/feature": [
         "libs/chat-web/home/feature/src/index.ts"
       ],
+      "@nx-mess/chat-web/shared/icons/search": [
+        "libs/chat-web/shared/icons/search/src/index.ts"
+      ],
       "@nx-mess/chat-web/shell-feature": [
         "libs/chat-web/shell-feature/src/index.ts"
       ],

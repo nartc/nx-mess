@@ -5,7 +5,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   template: `
     <div class="flex items-center gap-4">
       <h6>Nx Mess</h6>
-      <input type="text" />
+      <svg-icon key="search"></svg-icon>
     </div>
   `,
   styles: [],

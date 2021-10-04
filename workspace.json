@@ -896,6 +896,23 @@
         }
       }
     },
+    "chat-web-shared-icons-search": {
+      "root": "libs/chat-web/shared/icons/search",
+      "sourceRoot": "libs/chat-web/shared/icons/search/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/workspace:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/chat-web/shared/icons/search",
+            "main": "libs/chat-web/shared/icons/search/src/index.ts",
+            "tsConfig": "libs/chat-web/shared/icons/search/tsconfig.lib.json",
+            "assets": ["libs/chat-web/shared/icons/search/*.md"]
+          }
+        }
+      }
+    },
     "chat-web-shell-feature": {
       "projectType": "library",
       "root": "libs/chat-web/shell-feature",

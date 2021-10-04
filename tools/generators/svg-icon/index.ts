@@ -45,12 +45,7 @@ export default async function (
       tree.read(`${svgsPath}/${iconPath}.ts`)
     );
 
-    tree.write(
-      `${libPath}/src/index.ts`,
-      `
-export * from './lib/${iconPath}';
-    `
-    );
+    tree.write(`${libPath}/src/index.ts`, `export * from './lib/${iconPath}';`);
 
     execSync(`rm ${svgsPath}/${iconPath}.ts`);
   }

@@ -14,8 +14,8 @@ export const chatWebRoutes: Routes = [
     path: 'chat',
     canActivateChild: [AuthGuard],
     loadChildren: () =>
-      import('@nx-mess/chat-web/chat/feature').then(
-        (m) => m.ChatWebChatFeatureModule
+      import('@nx-mess/chat-web-chat-chat-shell-feature').then(
+        (m) => m.ChatWebChatChatShellFeatureModule
       ),
   },
 ];

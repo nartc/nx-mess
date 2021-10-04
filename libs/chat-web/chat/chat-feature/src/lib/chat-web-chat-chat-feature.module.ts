@@ -12,4 +12,4 @@ import { ChatComponent } from './chat.component';
   ],
   declarations: [ChatComponent],
 })
-export class ChatWebChatFeatureModule {}
+export class ChatWebChatChatFeatureModule {}

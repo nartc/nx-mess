@@ -8,6 +8,7 @@ import { ChatStore } from './chat.store';
       <pre>{{ vm | json }}</pre>
     </ng-container>
   `,
+  styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [ChatStore],
 })

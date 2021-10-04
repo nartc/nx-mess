@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'chat-web-chat-feature',
-  preset: '../../../../jest.preset.js',
+  displayName: 'chat-web-chat-ui-chat-menu',
+  preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -8,7 +8,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../../../coverage/libs/chat-web/chat/feature',
+  coverageDirectory: '../../../../../coverage/libs/chat-web/chat/ui/chat-menu',
   transform: {
     '^.+\\.(ts|js|html)$': 'jest-preset-angular',
   },

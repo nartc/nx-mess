@@ -55,8 +55,20 @@
         "libs/chat-api/user/feature/src/index.ts"
       ],
       "@nx-mess/chat-api/user/utils": ["libs/chat-api/user/utils/src/index.ts"],
-      "@nx-mess/chat-web/chat/feature": [
-        "libs/chat-web/chat/feature/src/index.ts"
+      "@nx-mess/chat-web-chat-chat-shell-feature": [
+        "libs/chat-web/chat/chat-shell-feature/src/index.ts"
+      ],
+      "@nx-mess/chat-web/chat/chat-feature": [
+        "libs/chat-web/chat/chat-feature/src/index.ts"
+      ],
+      "@nx-mess/chat-web/chat/ui/chat-menu": [
+        "libs/chat-web/chat/ui/chat-menu/src/index.ts"
+      ],
+      "@nx-mess/chat-web/chat/ui/chat-menu-nav": [
+        "libs/chat-web/chat/ui/chat-menu-nav/src/index.ts"
+      ],
+      "@nx-mess/chat-web/chat/ui/chat-nav": [
+        "libs/chat-web/chat/ui/chat-nav/src/index.ts"
       ],
       "@nx-mess/chat-web/home/feature": [
         "libs/chat-web/home/feature/src/index.ts"

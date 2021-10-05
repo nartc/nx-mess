@@ -6,8 +6,8 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      // sans: ['Open Sans', ...fontFamily.sans],
-      sans: ['Quicksand', ...fontFamily.sans],
+      sans: ['Open Sans', ...fontFamily.sans],
+      // sans: ['Quicksand', ...fontFamily.sans],
     },
     colors: {
       blue: colors.blue,

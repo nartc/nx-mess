@@ -124,10 +124,21 @@ export default async function (tree: Tree, schema: IonPageSchema) {
     .filter((change) => change.path.includes('.component.'));
 
   for (const componentChange of componentChanges) {
-    tree.rename(
-      componentChange.path,
-      componentChange.path.replace('.component.', '.page.')
-    );
+    const pagePath = componentChange.path.replace('.component.', '.page.');
+
+    tree.rename(componentChange.path, pagePath);
+
+    const content = tree.read(pagePath, 'utf-8');
+
+    if (content) {
+      tree.write(
+        pagePath,
+        content.replace(
+          new RegExp(`${normalizedNames.className}Component`, 'g'),
+          `${normalizedNames.className}Page`
+        )
+      );
+    }
   }
 
   const moduleChange = tree

@@ -80,6 +80,12 @@
       "tags": [],
       "implicitDependencies": ["chat"]
     },
+    "chat-feature-chat-general": {
+      "tags": ["scope:chat", "type:feature"]
+    },
+    "chat-feature-chat-shell": {
+      "tags": ["scope:chat", "type:feature"]
+    },
     "chat-feature-home": {
       "tags": ["scope:chat", "type:feature"]
     },
@@ -88,38 +94,6 @@
     },
     "chat-shared-styles": {
       "tags": []
-    },
-    "chat-web": {
-      "tags": ["scope:apps/chat-web", "type:app"],
-      "implicitDependencies": ["shared-assets", "shared-styles"]
-    },
-    "chat-web-chat-chat-feature": {
-      "tags": ["scope:chat-web", "type:feature"]
-    },
-    "chat-web-chat-chat-shell-feature": {
-      "tags": ["scope:chat-web", "type:feature"]
-    },
-    "chat-web-chat-ui-chat-menu": {
-      "tags": ["scope:chat-web", "type:ui"]
-    },
-    "chat-web-chat-ui-chat-menu-nav": {
-      "tags": ["scope:chat-web", "type:ui"]
-    },
-    "chat-web-chat-ui-chat-nav": {
-      "tags": ["scope:chat-web", "type:ui"]
-    },
-    "chat-web-e2e": {
-      "tags": [],
-      "implicitDependencies": ["chat-web"]
-    },
-    "chat-web-home-feature": {
-      "tags": ["scope:chat-web", "type:feature"]
-    },
-    "chat-web-shared-icons-search": {
-      "tags": ["scope:shared", "type:icon"]
-    },
-    "chat-web-shell-feature": {
-      "tags": ["scope:chat-web", "type:feature"]
     },
     "shared-assets": {
       "tags": ["scope:shared", "type:assets"]

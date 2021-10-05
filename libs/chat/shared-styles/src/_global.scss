@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap");
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
 /* Core CSS required for Ionic components to work properly */
 @import "~@ionic/angular/css/core.css";
 
@@ -13,3 +19,27 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+h1 {
+  @apply text-5xl;
+}
+
+h2 {
+  @apply text-4xl;
+}
+
+h3 {
+  @apply text-3xl;
+}
+
+h4 {
+  @apply text-2xl;
+}
+
+h5 {
+  @apply text-xl;
+}
+
+h6 {
+  @apply text-lg;
+}

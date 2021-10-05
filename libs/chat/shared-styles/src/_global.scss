@@ -20,6 +20,8 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+@import "ion-overrides";
+
 h1 {
   @apply text-5xl;
 }

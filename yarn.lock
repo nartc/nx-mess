@@ -1453,6 +1453,23 @@
   dependencies:
     "@bull-board/api" "3.5.4"
 
+"@capacitor/android@^2.4.5":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@capacitor/android/-/android-2.5.0.tgz#143d7b3b0131af221b4a1fca778fc207f3d235a6"
+  integrity sha512-W25F9GRuqNAN9D6Sd5Lj21ibGqzd8006Tf3mfai6MJj8DB3a1TMp+hueRwt+WhDJAS+T2pnljuR3FD/jd4u2Rw==
+
+"@capacitor/core@^2.4.5":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@capacitor/core/-/core-2.5.0.tgz#86b202ed950846427f710fafbdbbd844b1d0cc56"
+  integrity sha512-WUkUnqqLtlEYn6tly8t6VR0ABlSVbXdlD/gBbYxx0P+gEqMF9b46uYb2YqyH+8HBDANzTweEySpLfhiSUvYS7w==
+  dependencies:
+    tslib "^1.9.0"
+
+"@capacitor/ios@^2.4.5":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@capacitor/ios/-/ios-2.5.0.tgz#867b155c4a827631ab0884319e33f8dad15bc781"
+  integrity sha512-KVgSxKCUllbDJg+hJxZrZy81Xy1rv9T/d0sXcdP0a6uLOf+QceAqxmSnuRIw7dqehC0WLChWvOKrgzIevMarRA==
+
 "@cspotcode/source-map-consumer@0.8.0":
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/@cspotcode/source-map-consumer/-/source-map-consumer-0.8.0.tgz#33bf4b7b39c178821606f669bbc447a6a629786b"
@@ -1553,6 +1570,27 @@
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.0.tgz#87de7af9c231826fdd68ac7258f77c429e0e5fcf"
   integrity sha512-wdppn25U8z/2yiaT6YGquE6X8sSv7hNMWSXYSSU1jGv/yd6XqjXgTDJ8KP4NgjTXfJ3GbRjeeb8RTV7a/VpM+w==
+
+"@ionic-native/core@^5.30.0":
+  version "5.36.0"
+  resolved "https://registry.yarnpkg.com/@ionic-native/core/-/core-5.36.0.tgz#712c40a530b119b0039e8d16cb577899f50541d4"
+  integrity sha512-lOrkktadlKYbYf1LrDyAtsu1JnQ0oCCdkOU7iHQ8oXnNOkMwobFfD2m62F1CoOr0u9LIkpYnZSPjng8lZbmbNw==
+  dependencies:
+    "@types/cordova" latest
+
+"@ionic-native/splash-screen@^5.30.0":
+  version "5.36.0"
+  resolved "https://registry.yarnpkg.com/@ionic-native/splash-screen/-/splash-screen-5.36.0.tgz#70852eaa34aa3bbe283313f82d9d974f755ec7d6"
+  integrity sha512-BfNknY1rrGE8JRnCdKfL5wz8yFLhpPU5FRr8/LA3L+EncvPvcb9LGidePoeH3gVLMkolm2DI2a/rCelNrJ1Sxw==
+  dependencies:
+    "@types/cordova" latest
+
+"@ionic-native/status-bar@^5.30.0":
+  version "5.36.0"
+  resolved "https://registry.yarnpkg.com/@ionic-native/status-bar/-/status-bar-5.36.0.tgz#d28b92c5b435f95c0a837af6c03b309f6e0e3830"
+  integrity sha512-OXC1z+4Iba4lo1dc2+0h4Gvpud3z0XQmEbw0ny9UflCuSkLqBxvmiNRU7CRQwPnT1KaGVXkaSokdwxO8H9IlNg==
+  dependencies:
+    "@types/cordova" latest
 
 "@ionic/angular@^5.5.2":
   version "5.8.1"
@@ -2496,6 +2534,11 @@
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/@types/cookie/-/cookie-0.4.1.tgz#bfd02c1f2224567676c1545199f87c3a861d878d"
   integrity sha512-XW/Aa8APYr6jSVVA1y/DEIZX0/GMKLEVekNG727R8cs56ahETkRAy/3DR7+fJyh7oUgGwNQaRfXCun0+KbWY7Q==
+
+"@types/cordova@latest":
+  version "0.0.34"
+  resolved "https://registry.yarnpkg.com/@types/cordova/-/cordova-0.0.34.tgz#ea7addf74ecec3d7629827a0c39e2c9addc73d04"
+  integrity sha1-6nrd907Ow9dimCegw54smt3HPQQ=
 
 "@types/cors@^2.8.10":
   version "2.8.12"

@@ -1,0 +1,13 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "chat",
+  "bundledWebRuntime": false,
+  "npmClient": "yarn",
+  "webDir": "../../dist/apps/chat",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}

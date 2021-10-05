@@ -28,6 +28,9 @@
     ]
   },
   "projects": {
+    "chat": {
+      "tags": ["scope:apps/chat", "type:application"]
+    },
     "chat-api": {
       "tags": []
     },
@@ -72,6 +75,10 @@
     },
     "chat-api-user-utils": {
       "tags": ["scope:chat-api", "type:utils"]
+    },
+    "chat-e2e": {
+      "tags": [],
+      "implicitDependencies": ["chat"]
     },
     "chat-web": {
       "tags": ["scope:apps/chat-web", "type:app"],

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AuthActions } from '@nx-mess/shared/store';
 
 @Component({
   selector: 'nx-mess-root',
@@ -8,4 +10,10 @@ import { Component } from '@angular/core';
     </ion-app>
   `,
 })
-export class AppComponent {}
+export class AppComponent implements OnInit {
+  constructor(private store: Store) {}
+
+  ngOnInit() {
+    this.store.dispatch(AuthActions.check.trigger());
+  }
+}

@@ -80,6 +80,15 @@
       "tags": [],
       "implicitDependencies": ["chat"]
     },
+    "chat-feature-home": {
+      "tags": ["scope:chat", "type:feature"]
+    },
+    "chat-feature-shell": {
+      "tags": ["scope:chat", "type:feature"]
+    },
+    "chat-shared-styles": {
+      "tags": []
+    },
     "chat-web": {
       "tags": ["scope:apps/chat-web", "type:app"],
       "implicitDependencies": ["shared-assets", "shared-styles"]
@@ -116,10 +125,10 @@
       "tags": ["scope:shared", "type:assets"]
     },
     "shared-data-access": {
-      "tags": []
+      "tags": ["scope:shared", "type:data-access"]
     },
     "shared-environments": {
-      "tags": []
+      "tags": ["scope:shared", "type:environments"]
     },
     "shared-store": {
       "tags": []

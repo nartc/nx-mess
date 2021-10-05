@@ -23,7 +23,11 @@ module.exports = {
         dark: 'var(--dark-neutral)',
       },
     },
-    extend: {},
+    extend: {
+      height: {
+        'with-offset-top': 'calc(100% - var(--offset-top))',
+      },
+    },
   },
   variants: {
     extend: {},

@@ -79,6 +79,15 @@
       "@nx-mess/chat-web/shell-feature": [
         "libs/chat-web/shell-feature/src/index.ts"
       ],
+      "@nx-mess/chat/feature-home": ["libs/chat/feature-home/src/index.ts"],
+      "@nx-mess/chat/feature-shell": ["libs/chat/feature-shell/src/index.ts"],
+      "@nx-mess/chat/shared-styles": ["libs/chat/shared-styles/src/index.ts"],
+      "@nx-mess/shared-data-access-temp": [
+        "libs/shared/data-access-temp/src/index.ts"
+      ],
+      "@nx-mess/shared-environments-temp": [
+        "libs/shared/environments-temp/src/index.ts"
+      ],
       "@nx-mess/shared/assets": ["libs/shared/assets/src/index.ts"],
       "@nx-mess/shared/data-access": ["libs/shared/data-access/src/index.ts"],
       "@nx-mess/shared/environments": ["libs/shared/environments/src/index.ts"],

@@ -15,9 +15,7 @@ export class ChatGeneralStore extends ComponentStore<{}> {
   readonly vm$: Observable<ChatGeneralVm> = this.select(
     this.user$,
     (user) => ({ user }),
-    {
-      debounce: true,
-    }
+    { debounce: true }
   );
 
   constructor(private store: Store) {

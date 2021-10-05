@@ -38,6 +38,7 @@
     "@automapper/core": "6.1.4",
     "@automapper/nestjs": "6.1.4",
     "@bull-board/express": "3.5.4",
+    "@ionic/angular": "^5.5.2",
     "@nestjs/bull": "0.4.1",
     "@nestjs/common": "8.0.6",
     "@nestjs/config": "1.0.1",
@@ -97,6 +98,8 @@
     "@nrwl/nx-cloud": "12.3.10",
     "@nrwl/tao": "12.9.0",
     "@nrwl/workspace": "12.9.0",
+    "@nxtend/capacitor": "^11.0.0",
+    "@nxtend/ionic-angular": "11.1.1",
     "@tailwindcss/forms": "0.3.4",
     "@types/bull": "3.15.4",
     "@types/jest": "27.0.1",
@@ -119,4 +122,3 @@
     "typescript": "4.3.5"
   }
 }
-

@@ -3,13 +3,13 @@ import { NgModule } from '@angular/core';
 import { RouteReuseStrategy, RouterModule } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SharedDataAccessModule } from '@nx-mess/shared/data-access';
-import { routes } from './chat.routes';
+import { chatRoutes } from './chat.routes';
 
 @NgModule({
   imports: [
     CommonModule,
     IonicModule.forRoot(),
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(chatRoutes),
     SharedDataAccessModule.forRoot(),
   ],
   exports: [RouterModule, IonicModule],

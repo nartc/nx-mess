@@ -80,7 +80,13 @@
       "tags": [],
       "implicitDependencies": ["chat"]
     },
+    "chat-feature-chat-friends": {
+      "tags": ["scope:chat", "type:feature"]
+    },
     "chat-feature-chat-general": {
+      "tags": ["scope:chat", "type:feature"]
+    },
+    "chat-feature-chat-me": {
       "tags": ["scope:chat", "type:feature"]
     },
     "chat-feature-chat-shell": {

@@ -58,8 +58,14 @@
       "@nx-mess/chat-web-chat-chat-shell-feature": [
         "libs/chat-web/chat/chat-shell-feature/src/index.ts"
       ],
+      "@nx-mess/chat/feature-chat-friends": [
+        "libs/chat/feature-chat-friends/src/index.ts"
+      ],
       "@nx-mess/chat/feature-chat-general": [
         "libs/chat/feature-chat-general/src/index.ts"
+      ],
+      "@nx-mess/chat/feature-chat-me": [
+        "libs/chat/feature-chat-me/src/index.ts"
       ],
       "@nx-mess/chat/feature-chat-shell": [
         "libs/chat/feature-chat-shell/src/index.ts"

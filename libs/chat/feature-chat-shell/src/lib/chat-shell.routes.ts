@@ -18,6 +18,20 @@ export const chatShellRoutes: Routes = [
             (m) => m.ChatFeatureChatGeneralModule
           ),
       },
+      {
+        path: 'friends',
+        loadChildren: () =>
+          import('@nx-mess/chat/feature-chat-friends').then(
+            (m) => m.ChatFeatureChatFriendsModule
+          ),
+      },
+      {
+        path: 'me',
+        loadChildren: () =>
+          import('@nx-mess/chat/feature-chat-me').then(
+            (m) => m.ChatFeatureChatMeModule
+          ),
+      },
     ],
   },
 ];

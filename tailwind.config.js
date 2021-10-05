@@ -9,20 +9,6 @@ module.exports = {
       sans: ['Open Sans', ...fontFamily.sans],
       // sans: ['Quicksand', ...fontFamily.sans],
     },
-    colors: {
-      blue: colors.blue,
-      pink: colors.pink,
-      gray: colors.gray,
-      white: colors.white,
-      black: colors.black,
-      primary: 'var(--primary)',
-      secondary: 'var(--secondary)',
-      neutral: {
-        DEFAULT: 'var(--neutral)',
-        light: 'var(--light-neutral)',
-        dark: 'var(--dark-neutral)',
-      },
-    },
     extend: {
       height: {
         'with-offset-top': 'calc(100% - var(--offset-top))',

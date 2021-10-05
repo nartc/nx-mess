@@ -39,7 +39,10 @@
                 "output": "./svg"
               }
             ],
-            "styles": ["libs/chat/shared-styles/src/index.scss"],
+            "styles": [
+              "libs/shared/styles/src/index.scss",
+              "libs/chat/shared-styles/src/index.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -736,6 +739,47 @@
         }
       }
     },
+    "chat-feature-chat-friends": {
+      "projectType": "library",
+      "root": "libs/chat/feature-chat-friends",
+      "sourceRoot": "libs/chat/feature-chat-friends/src",
+      "prefix": "nxc",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/chat/feature-chat-friends"],
+          "options": {
+            "project": "libs/chat/feature-chat-friends/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/chat/feature-chat-friends/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/chat/feature-chat-friends/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/chat/feature-chat-friends"],
+          "options": {
+            "jestConfig": "libs/chat/feature-chat-friends/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/chat/feature-chat-friends/src/**/*.ts",
+              "libs/chat/feature-chat-friends/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "chat-feature-chat-general": {
       "projectType": "library",
       "root": "libs/chat/feature-chat-general",
@@ -772,6 +816,47 @@
             "lintFilePatterns": [
               "libs/chat/feature-chat-general/src/**/*.ts",
               "libs/chat/feature-chat-general/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "chat-feature-chat-me": {
+      "projectType": "library",
+      "root": "libs/chat/feature-chat-me",
+      "sourceRoot": "libs/chat/feature-chat-me/src",
+      "prefix": "nxc",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/chat/feature-chat-me"],
+          "options": {
+            "project": "libs/chat/feature-chat-me/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/chat/feature-chat-me/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/chat/feature-chat-me/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/chat/feature-chat-me"],
+          "options": {
+            "jestConfig": "libs/chat/feature-chat-me/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/chat/feature-chat-me/src/**/*.ts",
+              "libs/chat/feature-chat-me/src/**/*.html"
             ]
           }
         }

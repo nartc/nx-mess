@@ -5,7 +5,6 @@ import { ChatGeneralStore } from './chat-general.store';
   selector: 'nxc-chat-general',
   template: `
     <ng-container *ngrxLet="vm$; let vm">
-      <h1>Caleb is awesome!</h1>
       <pre>{{ vm.user | json }}</pre>
     </ng-container>
   `,

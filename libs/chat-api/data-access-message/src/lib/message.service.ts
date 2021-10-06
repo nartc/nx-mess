@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { BaseService, ModelType } from '@nx-mess/chat-api/shared/data-access';
+import { BaseService, ModelType } from '@nx-mess/chat-api/shared-data-access';
 import { Message } from './message.model';
 
 @Injectable()

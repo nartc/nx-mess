@@ -1,5 +1,5 @@
 import { Process, Processor } from '@nestjs/bull';
-import { USER_QUEUE } from '@nx-mess/chat-api/shared/utils';
+import { USER_QUEUE } from '@nx-mess/chat-api/shared-utils';
 import { CREATE_USER_FROM_AUTH0 } from '@nx-mess/chat-api/utils-user';
 import { Job } from 'bull';
 import { User } from './user.model';

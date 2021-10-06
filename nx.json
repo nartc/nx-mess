@@ -34,28 +34,31 @@
     "chat-api": {
       "tags": []
     },
-    "chat-api-auth0-data-access": {
+    "chat-api-data-access-auth0": {
       "tags": ["scope:chat-api", "type:data-access"]
     },
-    "chat-api-auth0-feature": {
-      "tags": ["scope:chat-api", "type:feature"]
-    },
-    "chat-api-config-feature": {
-      "tags": ["scope:chat-api", "type:feature"]
-    },
-    "chat-api-config-utils": {
-      "tags": ["scope:chat-api", "type:feature"]
-    },
-    "chat-api-message-data-access": {
+    "chat-api-data-access-message": {
       "tags": ["scope:chat-api", "type:data-access"]
     },
-    "chat-api-message-feature": {
-      "tags": ["scope:chat-api", "type:feature"]
-    },
-    "chat-api-notification-data-access": {
+    "chat-api-data-access-notification": {
       "tags": ["scope:chat-api", "type:data-access"]
     },
-    "chat-api-notification-feature": {
+    "chat-api-data-access-user": {
+      "tags": ["scope:chat-api", "type:data-access"]
+    },
+    "chat-api-feature-auth0": {
+      "tags": ["scope:chat-api", "type:feature"]
+    },
+    "chat-api-feature-config": {
+      "tags": ["scope:chat-api", "type:feature"]
+    },
+    "chat-api-feature-message": {
+      "tags": ["scope:chat-api", "type:feature"]
+    },
+    "chat-api-feature-notification": {
+      "tags": ["scope:chat-api", "type:feature"]
+    },
+    "chat-api-feature-user": {
       "tags": ["scope:chat-api", "type:feature"]
     },
     "chat-api-shared-data-access": {
@@ -67,13 +70,10 @@
     "chat-api-shared-utils": {
       "tags": ["scope:chat-api", "type:utils"]
     },
-    "chat-api-user-data-access": {
-      "tags": ["scope:chat-api", "type:data-access"]
-    },
-    "chat-api-user-feature": {
+    "chat-api-utils-config": {
       "tags": ["scope:chat-api", "type:feature"]
     },
-    "chat-api-user-utils": {
+    "chat-api-utils-user": {
       "tags": ["scope:chat-api", "type:utils"]
     },
     "chat-e2e": {

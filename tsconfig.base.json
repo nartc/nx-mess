@@ -10,51 +10,56 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-mess/chat-api/auth0/data-access": [
-        "libs/chat-api/auth0/data-access/src/index.ts"
+      "@nx-mess/chat-api/data-access-auth0": [
+        "libs/chat-api/data-access-auth0/src/index.ts"
       ],
-      "@nx-mess/chat-api/auth0/feature": [
-        "libs/chat-api/auth0/feature/src/index.ts"
+      "@nx-mess/chat-api/data-access-message": [
+        "libs/chat-api/data-access-message/src/index.ts"
       ],
-      "@nx-mess/chat-api/config/feature": [
-        "libs/chat-api/config/feature/src/index.ts"
+      "@nx-mess/chat-api/data-access-notification": [
+        "libs/chat-api/data-access-notification/src/index.ts"
       ],
-      "@nx-mess/chat-api/config/utils": [
-        "libs/chat-api/config/utils/src/index.ts"
+      "@nx-mess/chat-api/data-access-user": [
+        "libs/chat-api/data-access-user/src/index.ts"
       ],
-      "@nx-mess/chat-api/message/data-access": [
-        "libs/chat-api/message/data-access/src/index.ts"
+      "@nx-mess/chat-api/feature-auth0": [
+        "libs/chat-api/feature-auth0/src/index.ts"
       ],
-      "@nx-mess/chat-api/message/feature": [
-        "libs/chat-api/message/feature/src/index.ts"
+      "@nx-mess/chat-api/feature-config": [
+        "libs/chat-api/feature-config/src/index.ts"
       ],
-      "@nx-mess/chat-api/notification/data-access": [
-        "libs/chat-api/notification/data-access/src/index.ts"
+      "@nx-mess/chat-api/feature-message": [
+        "libs/chat-api/feature-message/src/index.ts"
       ],
-      "@nx-mess/chat-api/notification/feature": [
-        "libs/chat-api/notification/feature/src/index.ts"
+      "@nx-mess/chat-api/feature-notification": [
+        "libs/chat-api/feature-notification/src/index.ts"
       ],
-      "@nx-mess/chat-api/shared/data-access": [
-        "libs/chat-api/shared/data-access/src/index.ts"
+      "@nx-mess/chat-api/feature-user": [
+        "libs/chat-api/feature-user/src/index.ts"
       ],
-      "@nx-mess/chat-api/shared/mappings": [
-        "libs/chat-api/shared/mappings/src/index.ts"
+      "@nx-mess/chat-api/shared-data-access": [
+        "libs/chat-api/shared-data-access/src/index.ts"
       ],
-      "@nx-mess/chat-api/shared/utils": [
-        "libs/chat-api/shared/utils/src/index.ts"
+      "@nx-mess/chat-api/shared-mappings": [
+        "libs/chat-api/shared-mappings/src/index.ts"
       ],
-      "@nx-mess/chat-api/user/data-access": [
-        "libs/chat-api/user/data-access/src/index.ts"
+      "@nx-mess/chat-api/shared-utils": [
+        "libs/chat-api/shared-utils/src/index.ts"
       ],
-      "@nx-mess/chat-api/user/feature": [
-        "libs/chat-api/user/feature/src/index.ts"
+      "@nx-mess/chat-api/utils-config": [
+        "libs/chat-api/utils-config/src/index.ts"
       ],
-      "@nx-mess/chat-api/user/utils": ["libs/chat-api/user/utils/src/index.ts"],
+      "@nx-mess/chat-api/utils-user": [
+        "libs/chat-api/utils-user/src/index.ts"
+      ],
       "@nx-mess/chat-web-chat-chat-shell-feature": [
         "libs/chat-web/chat/chat-shell-feature/src/index.ts"
       ],
@@ -70,24 +75,43 @@
       "@nx-mess/chat/feature-chat-shell": [
         "libs/chat/feature-chat-shell/src/index.ts"
       ],
-      "@nx-mess/chat/feature-home": ["libs/chat/feature-home/src/index.ts"],
-      "@nx-mess/chat/feature-shell": ["libs/chat/feature-shell/src/index.ts"],
-      "@nx-mess/chat/shared-styles": ["libs/chat/shared-styles/src/index.ts"],
+      "@nx-mess/chat/feature-home": [
+        "libs/chat/feature-home/src/index.ts"
+      ],
+      "@nx-mess/chat/feature-shell": [
+        "libs/chat/feature-shell/src/index.ts"
+      ],
+      "@nx-mess/chat/shared-styles": [
+        "libs/chat/shared-styles/src/index.ts"
+      ],
       "@nx-mess/shared-data-access-temp": [
         "libs/shared/data-access-temp/src/index.ts"
       ],
       "@nx-mess/shared-environments-temp": [
         "libs/shared/environments-temp/src/index.ts"
       ],
-      "@nx-mess/shared/assets": ["libs/shared/assets/src/index.ts"],
-      "@nx-mess/shared/data-access": ["libs/shared/data-access/src/index.ts"],
-      "@nx-mess/shared/environments": ["libs/shared/environments/src/index.ts"],
-      "@nx-mess/shared/store": ["libs/shared/store/src/index.ts"],
-      "@nx-mess/shared/styles": ["libs/shared/styles/src/index.ts"],
+      "@nx-mess/shared/assets": [
+        "libs/shared/assets/src/index.ts"
+      ],
+      "@nx-mess/shared/data-access": [
+        "libs/shared/data-access/src/index.ts"
+      ],
+      "@nx-mess/shared/environments": [
+        "libs/shared/environments/src/index.ts"
+      ],
+      "@nx-mess/shared/store": [
+        "libs/shared/store/src/index.ts"
+      ],
+      "@nx-mess/shared/styles": [
+        "libs/shared/styles/src/index.ts"
+      ],
       "@nx-mess/shared/utils-socket-constants": [
         "libs/shared/utils-socket-constants/src/index.ts"
       ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }

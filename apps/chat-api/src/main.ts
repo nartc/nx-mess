@@ -3,8 +3,8 @@ import { BullAdapter } from '@bull-board/api/bullAdapter';
 import { ExpressAdapter } from '@bull-board/express';
 import { HttpStatus, Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
-import { AppConfig, appConfiguration } from '@nx-mess/chat-api/config/utils';
-import { getFullQueueName, USER_QUEUE } from '@nx-mess/chat-api/shared/utils';
+import { AppConfig, appConfiguration } from '@nx-mess/chat-api/utils-config';
+import { getFullQueueName, USER_QUEUE } from '@nx-mess/chat-api/shared-utils';
 
 import * as compression from 'compression';
 import * as helmet from 'helmet';

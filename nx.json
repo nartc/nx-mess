@@ -107,6 +107,9 @@
     "shared-data-access": {
       "tags": ["scope:shared", "type:data-access"]
     },
+    "shared-data-access-chat-socket": {
+      "tags": ["scope:shared", "type:data-access"]
+    },
     "shared-environments": {
       "tags": ["scope:shared", "type:environments"]
     },
@@ -115,6 +118,9 @@
     },
     "shared-styles": {
       "tags": []
+    },
+    "shared-utils-socket-constants": {
+      "tags": ["scope:shared", "type:util"]
     }
   }
 }

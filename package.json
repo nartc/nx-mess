@@ -10,7 +10,8 @@
     "lint": "nx workspace-lint && nx lint",
     "postinstall": "ngcc --properties es2015 browser module main",
     "start:server": "nx run chat-api:serve-dev",
-    "ngrok": "npx ngrok http 3000 --host-header='localhost:3000'"
+    "ngrok": "npx ngrok http 3000 --host-header='localhost:3000'",
+    "start:ion": "nx serve chat"
   },
   "private": true,
   "dependencies": {
@@ -59,6 +60,7 @@
     "mongoose-lean-virtuals": "0.8.0",
     "ngrx-immer": "1.0.1",
     "ngrx-slice": "3.1.1",
+    "ngx-socket-io": "4.1.0",
     "passport": "0.4.1",
     "passport-jwt": "4.0.0",
     "reflect-metadata": "0.1.13",

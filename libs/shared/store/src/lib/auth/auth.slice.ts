@@ -10,7 +10,7 @@ export type AuthUser = AuthState['user'];
 
 export type NonNullAuthUser = NonNullable<AuthUser>;
 
-export const initialState: AuthState = {
+export const initialAuthState: AuthState = {
   isLoggedIn: false,
   user: null,
 };
@@ -22,7 +22,7 @@ export const {
   reducer: authReducer,
 } = createSlice({
   name: 'auth',
-  initialState,
+  initialState: initialAuthState,
   reducers: {
     login: {
       success: (state, action: PayloadAction<{ user: AuthUser }>) => {
@@ -32,9 +32,7 @@ export const {
       trigger: noopReducer(),
     },
     logout: {
-      success: (state) => {
-        state = initialState;
-      },
+      success: (state) => void (state = initialAuthState),
       trigger: noopReducer(),
     },
     check: {

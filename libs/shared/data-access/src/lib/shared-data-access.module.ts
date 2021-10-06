@@ -11,7 +11,9 @@ import {
   authReducer,
   CustomRouterStateSerializer,
   routerFeatureKey,
+  SocketEffect,
 } from '@nx-mess/shared/store';
+import { SocketIoModule } from 'ngx-socket-io';
 import { logger } from './logger';
 
 @NgModule({
@@ -38,7 +40,7 @@ import { logger } from './logger';
         metaReducers: environment.production ? [] : [logger],
       }
     ),
-    EffectsModule.forRoot([AuthEffect]),
+    EffectsModule.forRoot([AuthEffect, SocketEffect]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
@@ -47,6 +49,7 @@ import { logger } from './logger';
     StoreRouterConnectingModule.forRoot({
       serializer: CustomRouterStateSerializer,
     }),
+    SocketIoModule.forRoot({ url: '', options: { autoConnect: false } }),
   ],
 })
 export class SharedDataAccessModule {

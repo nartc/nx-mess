@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
+import { Socket } from 'ngx-socket-io';
 
 @Component({
   selector: 'nxc-chat-shell',
@@ -25,8 +26,10 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ChatShellPage implements OnInit {
-  constructor() {}
+export class ChatShellPage implements OnDestroy {
+  constructor(private socket: Socket) {}
 
-  ngOnInit(): void {}
+  ngOnDestroy() {
+    this.socket.disconnect();
+  }
 }

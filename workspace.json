@@ -88,7 +88,10 @@
               "browserTarget": "chat:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "proxyConfig": "apps/chat/proxy.conf.json"
+          }
         },
         "extract-i18n": {
           "executor": "@angular-devkit/build-angular:extract-i18n",
@@ -1064,6 +1067,47 @@
         }
       }
     },
+    "shared-data-access-chat-socket": {
+      "projectType": "library",
+      "root": "libs/shared/data-access-chat-socket",
+      "sourceRoot": "libs/shared/data-access-chat-socket/src",
+      "prefix": "nxc",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/shared/data-access-chat-socket"],
+          "options": {
+            "project": "libs/shared/data-access-chat-socket/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/shared/data-access-chat-socket/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/shared/data-access-chat-socket/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/data-access-chat-socket"],
+          "options": {
+            "jestConfig": "libs/shared/data-access-chat-socket/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/data-access-chat-socket/src/**/*.ts",
+              "libs/shared/data-access-chat-socket/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "shared-environments": {
       "root": "libs/shared/environments",
       "sourceRoot": "libs/shared/environments/src",
@@ -1142,6 +1186,38 @@
       "sourceRoot": "libs/shared/styles/src",
       "projectType": "library",
       "targets": {}
+    },
+    "shared-utils-socket-constants": {
+      "root": "libs/shared/utils-socket-constants",
+      "sourceRoot": "libs/shared/utils-socket-constants/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/workspace:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/shared/utils-socket-constants",
+            "main": "libs/shared/utils-socket-constants/src/index.ts",
+            "tsConfig": "libs/shared/utils-socket-constants/tsconfig.lib.json",
+            "assets": ["libs/shared/utils-socket-constants/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/shared/utils-socket-constants/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/utils-socket-constants"],
+          "options": {
+            "jestConfig": "libs/shared/utils-socket-constants/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

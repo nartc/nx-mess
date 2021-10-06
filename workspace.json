@@ -1067,47 +1067,6 @@
         }
       }
     },
-    "shared-data-access-chat-socket": {
-      "projectType": "library",
-      "root": "libs/shared/data-access-chat-socket",
-      "sourceRoot": "libs/shared/data-access-chat-socket/src",
-      "prefix": "nxc",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/angular:ng-packagr-lite",
-          "outputs": ["dist/libs/shared/data-access-chat-socket"],
-          "options": {
-            "project": "libs/shared/data-access-chat-socket/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/shared/data-access-chat-socket/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/shared/data-access-chat-socket/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/data-access-chat-socket"],
-          "options": {
-            "jestConfig": "libs/shared/data-access-chat-socket/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/shared/data-access-chat-socket/src/**/*.ts",
-              "libs/shared/data-access-chat-socket/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
     "shared-environments": {
       "root": "libs/shared/environments",
       "sourceRoot": "libs/shared/environments/src",

@@ -14,15 +14,17 @@ export class MessageGateway
 
   constructor(private messageService: MessageService) {}
 
+  /**
+   * GatewayConnection only happens when the Frontend has done checking for authentication.
+   */
   handleConnection(client: io.Socket) {
-    if (!this.connectedClients.has(client.id)) {
-      this.connectedClients.add(client.id);
-    }
+    this.connectedClients.add(client.id);
   }
 
+  /**
+   * GatewayDisconnect happens when the user logs out or when the app is refreshed
+   */
   handleDisconnect(client: io.Socket) {
-    if (this.connectedClients.has(client.id)) {
-      this.connectedClients.delete(client.id);
-    }
+    this.connectedClients.delete(client.id);
   }
 }

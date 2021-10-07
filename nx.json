@@ -76,7 +76,7 @@
     "chat-api-utils-user": {
       "tags": ["scope:chat-api", "type:utils"]
     },
-    "chat-data-access-chat-shell": {
+    "chat-data-access-chat-general": {
       "tags": ["scope:chat", "type:data-access"]
     },
     "chat-e2e": {

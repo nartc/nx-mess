@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'chat-data-access-chat-shell',
+  displayName: 'chat-data-access-chat-general',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -8,7 +8,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../../coverage/libs/chat/data-access-chat-shell',
+  coverageDirectory: '../../../coverage/libs/chat/data-access-chat-general',
   transform: {
     '^.+\\.(ts|js|html)$': 'jest-preset-angular',
   },

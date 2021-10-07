@@ -716,33 +716,33 @@
         }
       }
     },
-    "chat-data-access-chat-shell": {
+    "chat-data-access-chat-general": {
       "projectType": "library",
-      "root": "libs/chat/data-access-chat-shell",
-      "sourceRoot": "libs/chat/data-access-chat-shell/src",
+      "root": "libs/chat/data-access-chat-general",
+      "sourceRoot": "libs/chat/data-access-chat-general/src",
       "prefix": "nxc",
       "targets": {
         "build": {
           "executor": "@nrwl/angular:ng-packagr-lite",
-          "outputs": ["dist/libs/chat/data-access-chat-shell"],
+          "outputs": ["dist/libs/chat/data-access-chat-general"],
           "options": {
-            "project": "libs/chat/data-access-chat-shell/ng-package.json"
+            "project": "libs/chat/data-access-chat-general/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "libs/chat/data-access-chat-shell/tsconfig.lib.prod.json"
+              "tsConfig": "libs/chat/data-access-chat-general/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "libs/chat/data-access-chat-shell/tsconfig.lib.json"
+              "tsConfig": "libs/chat/data-access-chat-general/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/chat/data-access-chat-shell"],
+          "outputs": ["coverage/libs/chat/data-access-chat-general"],
           "options": {
-            "jestConfig": "libs/chat/data-access-chat-shell/jest.config.js",
+            "jestConfig": "libs/chat/data-access-chat-general/jest.config.js",
             "passWithNoTests": true
           }
         },
@@ -750,8 +750,8 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/chat/data-access-chat-shell/src/**/*.ts",
-              "libs/chat/data-access-chat-shell/src/**/*.html"
+              "libs/chat/data-access-chat-general/src/**/*.ts",
+              "libs/chat/data-access-chat-general/src/**/*.html"
             ]
           }
         }

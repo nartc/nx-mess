@@ -5,7 +5,7 @@ import {
   RedisConfig,
   redisConfiguration,
 } from '@nx-mess/chat-api/utils-config';
-import { USER_QUEUE } from '@nx-mess/chat-api/shared-utils';
+import { USER_QUEUE } from '@nx-mess/chat-api/utils-shared';
 import { UserConsumer } from './user.consumer';
 import { User } from './user.model';
 import { UserService } from './user.service';

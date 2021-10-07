@@ -1,8 +1,8 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { Auth0UserDto } from '@nx-mess/chat-api/shared-data-access';
-import { AllowAnonymous } from '@nx-mess/chat-api/shared-utils';
+import { Auth0UserDto } from '@nx-mess/chat-api/data-access-shared';
 import { UserService } from '@nx-mess/chat-api/data-access-user';
+import { AllowAnonymous } from '@nx-mess/chat-api/utils-shared';
 
 @Controller('users')
 @ApiTags('users')

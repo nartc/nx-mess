@@ -18,6 +18,15 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-mess/chat-api/data-access-shared": [
+        "libs/chat-api/data-access-shared/src/index.ts"
+      ],
+      "@nx-mess/chat-api/mappings-shared": [
+        "libs/chat-api/mappings-shared/src/index.ts"
+      ],
+      "@nx-mess/chat-api/utils-shared": [
+        "libs/chat-api/utils-shared/src/index.ts"
+      ],
       "@nx-mess/chat-api/data-access-auth0": [
         "libs/chat-api/data-access-auth0/src/index.ts"
       ],
@@ -45,23 +54,17 @@
       "@nx-mess/chat-api/feature-user": [
         "libs/chat-api/feature-user/src/index.ts"
       ],
-      "@nx-mess/chat-api/shared-data-access": [
-        "libs/chat-api/shared-data-access/src/index.ts"
-      ],
-      "@nx-mess/chat-api/shared-mappings": [
-        "libs/chat-api/shared-mappings/src/index.ts"
-      ],
-      "@nx-mess/chat-api/shared-utils": [
-        "libs/chat-api/shared-utils/src/index.ts"
-      ],
       "@nx-mess/chat-api/utils-config": [
         "libs/chat-api/utils-config/src/index.ts"
       ],
       "@nx-mess/chat-api/utils-user": [
         "libs/chat-api/utils-user/src/index.ts"
       ],
-      "@nx-mess/chat-web-chat-chat-shell-feature": [
-        "libs/chat-web/chat/chat-shell-feature/src/index.ts"
+      "@nx-mess/chat/styles-shared": [
+        "libs/chat/styles-shared/src/index.ts"
+      ],
+      "@nx-mess/chat/data-access-chat-shell": [
+        "libs/chat/data-access-chat-shell/src/index.ts"
       ],
       "@nx-mess/chat/feature-chat-friends": [
         "libs/chat/feature-chat-friends/src/index.ts"
@@ -80,9 +83,6 @@
       ],
       "@nx-mess/chat/feature-shell": [
         "libs/chat/feature-shell/src/index.ts"
-      ],
-      "@nx-mess/chat/shared-styles": [
-        "libs/chat/shared-styles/src/index.ts"
       ],
       "@nx-mess/shared-data-access-temp": [
         "libs/shared/data-access-temp/src/index.ts"

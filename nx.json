@@ -43,6 +43,9 @@
     "chat-api-data-access-notification": {
       "tags": ["scope:chat-api", "type:data-access"]
     },
+    "chat-api-data-access-shared": {
+      "tags": ["scope:chat-api", "type:data-access"]
+    },
     "chat-api-data-access-user": {
       "tags": ["scope:chat-api", "type:data-access"]
     },
@@ -61,20 +64,20 @@
     "chat-api-feature-user": {
       "tags": ["scope:chat-api", "type:feature"]
     },
-    "chat-api-shared-data-access": {
-      "tags": ["scope:chat-api", "type:data-access"]
-    },
-    "chat-api-shared-mappings": {
+    "chat-api-mappings-shared": {
       "tags": ["scope:chat-api", "type:mappings"]
-    },
-    "chat-api-shared-utils": {
-      "tags": ["scope:chat-api", "type:utils"]
     },
     "chat-api-utils-config": {
       "tags": ["scope:chat-api", "type:feature"]
     },
+    "chat-api-utils-shared": {
+      "tags": ["scope:chat-api", "type:utils"]
+    },
     "chat-api-utils-user": {
       "tags": ["scope:chat-api", "type:utils"]
+    },
+    "chat-data-access-chat-shell": {
+      "tags": ["scope:chat", "type:data-access"]
     },
     "chat-e2e": {
       "tags": [],
@@ -98,7 +101,7 @@
     "chat-feature-shell": {
       "tags": ["scope:chat", "type:feature"]
     },
-    "chat-shared-styles": {
+    "chat-styles-shared": {
       "tags": []
     },
     "shared-assets": {

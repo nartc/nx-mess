@@ -1,7 +1,7 @@
 import { AutoMap } from '@automapper/classes';
-import { BaseModel } from '@nx-mess/chat-api/shared-data-access';
-import { useMongoosePlugins } from '@nx-mess/chat-api/shared-utils';
+import { BaseModel } from '@nx-mess/chat-api/data-access-shared';
 import { User } from '@nx-mess/chat-api/data-access-user';
+import { useMongoosePlugins } from '@nx-mess/chat-api/utils-shared';
 import { prop, Ref } from '@typegoose/typegoose';
 
 @useMongoosePlugins()

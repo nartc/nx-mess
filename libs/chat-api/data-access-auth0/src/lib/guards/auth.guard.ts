@@ -1,7 +1,7 @@
 import { ExecutionContext, Injectable } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { AuthGuard as PassportAuthGuard } from '@nestjs/passport';
-import { ALLOW_ANONYMOUS } from '@nx-mess/chat-api/shared-utils';
+import { ALLOW_ANONYMOUS } from '@nx-mess/chat-api/utils-shared';
 import type { Observable } from 'rxjs';
 
 @Injectable()

@@ -4,8 +4,8 @@ import { ExpressAdapter } from '@bull-board/express';
 import { HttpStatus, INestApplication, Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { getFullQueueName, USER_QUEUE } from '@nx-mess/chat-api/shared-utils';
 import { AppConfig, appConfiguration } from '@nx-mess/chat-api/utils-config';
+import { getFullQueueName, USER_QUEUE } from '@nx-mess/chat-api/utils-shared';
 
 import * as compression from 'compression';
 import * as helmet from 'helmet';

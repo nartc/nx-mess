@@ -6,7 +6,7 @@ import {
   Auth0UserDto,
   BaseService,
   ModelType,
-} from '@nx-mess/chat-api/shared-data-access';
+} from '@nx-mess/chat-api/data-access-shared';
 import {
   CREATE_USER_FROM_AUTH0,
   InjectUserQueue,

@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { BaseProfile } from '@nx-mess/chat-api/mappings-shared';
 import {
   appConfiguration,
   auth0Configuration,
@@ -19,5 +20,6 @@ import {
       ],
     }),
   ],
+  providers: [BaseProfile],
 })
 export class ChatApiConfigFeatureModule {}

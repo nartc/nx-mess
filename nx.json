@@ -110,6 +110,9 @@
     "shared-data-access": {
       "tags": ["scope:shared", "type:data-access"]
     },
+    "shared-data-access-api": {
+      "tags": ["scope:shared", "type:data-access"]
+    },
     "shared-environments": {
       "tags": ["scope:shared", "type:environments"]
     },

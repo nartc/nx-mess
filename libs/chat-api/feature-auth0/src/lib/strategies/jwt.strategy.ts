@@ -6,7 +6,7 @@ import { ExtractJwt, Strategy } from 'passport-jwt';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
-  constructor(@InjectAuth0Config() auth0Config: Auth0Config) {
+  constructor(@InjectAuth0Config() private auth0Config: Auth0Config) {
     super({
       secretOrKeyProvider: passportJwtSecret({
         cache: true,
@@ -21,8 +21,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  validate(payload: unknown) {
-    console.log(payload);
-    return payload;
+  validate(payload: Record<string, unknown>) {
+    return payload[this.auth0Config.userClaimKey];
   }
 }

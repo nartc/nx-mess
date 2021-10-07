@@ -1,6 +1,6 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { AuthModule } from '@auth0/auth0-angular';
+import { AuthHttpInterceptor, AuthModule } from '@auth0/auth0-angular';
 import { EffectsModule } from '@ngrx/effects';
 import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
@@ -29,6 +29,7 @@ export function apiConfigurationFactory() {
     AuthModule.forRoot({
       domain: environment.auth.domain,
       clientId: environment.auth.clientId,
+      audience: environment.auth.audience,
       useRefreshTokens: true,
       httpInterceptor: {
         allowedList: [
@@ -58,6 +59,9 @@ export function apiConfigurationFactory() {
       serializer: CustomRouterStateSerializer,
     }),
     SocketIoModule.forRoot({ url: '', options: { autoConnect: false } }),
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthHttpInterceptor, multi: true },
   ],
 })
 export class SharedDataAccessModule {

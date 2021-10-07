@@ -27,7 +27,6 @@ export class UserProfile extends AutomapperProfile {
       const baseMapping = mapper.getMapping(BaseModel, BaseDto);
 
       mapper.createMap(User, UserDto, { extends: [baseMapping] });
-
       mapper
         .createMap(Auth0UserDto, User, {
           namingConventions: {

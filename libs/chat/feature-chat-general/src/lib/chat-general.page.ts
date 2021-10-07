@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ChatGeneralStore } from './chat-general.store';
 
 @Component({
@@ -12,8 +12,12 @@ import { ChatGeneralStore } from './chat-general.store';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [ChatGeneralStore],
 })
-export class ChatGeneralPage {
+export class ChatGeneralPage implements OnInit {
   readonly vm$ = this.chatGeneralStore.vm$;
 
   constructor(private chatGeneralStore: ChatGeneralStore) {}
+
+  ngOnInit() {
+    this.chatGeneralStore.initEffect();
+  }
 }

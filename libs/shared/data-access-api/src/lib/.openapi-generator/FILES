@@ -3,7 +3,6 @@ README.md
 api.module.ts
 api/api.ts
 api/messages.service.ts
-api/users.service.ts
 configuration.ts
 encoder.ts
 git_push.sh

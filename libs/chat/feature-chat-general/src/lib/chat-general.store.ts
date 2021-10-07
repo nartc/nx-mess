@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
 import { Store } from '@ngrx/store';
-import { GeneralMessageSelectors } from '@nx-mess/chat/data-access-chat-general';
+import {
+  GeneralMessageActions,
+  GeneralMessageSelectors,
+} from '@nx-mess/chat/data-access-chat-general';
 import { MessageDto } from '@nx-mess/shared/data-access-api';
 import { AuthSelectors, NonNullAuthUser } from '@nx-mess/shared/store';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 export interface ChatGeneralVm {
   user: NonNullAuthUser;
@@ -28,4 +31,20 @@ export class ChatGeneralStore extends ComponentStore<{}> {
   constructor(private store: Store) {
     super({});
   }
+
+  readonly initEffect = this.effect(($) =>
+    $.pipe(
+      tap(() => {
+        this.getMessagesEffect();
+      })
+    )
+  );
+
+  private readonly getMessagesEffect = this.effect(($) =>
+    $.pipe(
+      tap(() => {
+        this.store.dispatch(GeneralMessageActions.load.trigger());
+      })
+    )
+  );
 }

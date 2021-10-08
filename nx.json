@@ -104,6 +104,9 @@
     "chat-styles-shared": {
       "tags": []
     },
+    "chat-ui-chat-input": {
+      "tags": ["scope:chat", "type:ui"]
+    },
     "shared-assets": {
       "tags": ["scope:shared", "type:assets"]
     },

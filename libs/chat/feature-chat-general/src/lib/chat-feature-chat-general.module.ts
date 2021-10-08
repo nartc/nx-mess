@@ -1,8 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { ChatDataAccessChatGeneralModule } from '@nx-mess/chat/data-access-chat-general';
+import { ChatUiChatInputModule } from '@nx-mess/chat/ui-chat-input';
 import { ChatGeneralPage } from './chat-general.page';
 
 @NgModule({
@@ -11,6 +14,9 @@ import { ChatGeneralPage } from './chat-general.page';
     RouterModule.forChild([{ path: '', component: ChatGeneralPage }]),
     ReactiveComponentModule,
     ChatDataAccessChatGeneralModule,
+    IonicModule,
+    ReactiveFormsModule,
+    ChatUiChatInputModule,
   ],
   declarations: [ChatGeneralPage],
 })

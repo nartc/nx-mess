@@ -73,6 +73,7 @@
       "@nx-mess/chat/feature-home": ["libs/chat/feature-home/src/index.ts"],
       "@nx-mess/chat/feature-shell": ["libs/chat/feature-shell/src/index.ts"],
       "@nx-mess/chat/styles-shared": ["libs/chat/styles-shared/src/index.ts"],
+      "@nx-mess/chat/ui-chat-input": ["libs/chat/ui-chat-input/src/index.ts"],
       "@nx-mess/shared-data-access-temp": [
         "libs/shared/data-access-temp/src/index.ts"
       ],

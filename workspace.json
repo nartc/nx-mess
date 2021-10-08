@@ -1061,6 +1061,47 @@
         }
       }
     },
+    "chat-ui-chat-input": {
+      "projectType": "library",
+      "root": "libs/chat/ui-chat-input",
+      "sourceRoot": "libs/chat/ui-chat-input/src",
+      "prefix": "nxc",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/chat/ui-chat-input"],
+          "options": {
+            "project": "libs/chat/ui-chat-input/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/chat/ui-chat-input/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/chat/ui-chat-input/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/chat/ui-chat-input"],
+          "options": {
+            "jestConfig": "libs/chat/ui-chat-input/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/chat/ui-chat-input/src/**/*.ts",
+              "libs/chat/ui-chat-input/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "shared-assets": {
       "root": "libs/shared/assets",
       "sourceRoot": "libs/shared/assets/src",

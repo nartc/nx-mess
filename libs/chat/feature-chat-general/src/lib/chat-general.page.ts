@@ -5,8 +5,14 @@ import { ChatGeneralStore } from './chat-general.store';
   selector: 'nxc-chat-general',
   template: `
     <ng-container *ngrxLet="vm$; let vm">
-      <pre>{{ vm | json }}</pre>
+      <pre class="flex-1">{{ vm | json }}</pre>
     </ng-container>
+    <ion-footer>
+      <nxc-chat-input
+        (typingChange)="onTypingChanged($event)"
+        (message)="onMessage($event)"
+      ></nxc-chat-input>
+    </ion-footer>
   `,
   styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -19,5 +25,13 @@ export class ChatGeneralPage implements OnInit {
 
   ngOnInit() {
     this.chatGeneralStore.initEffect();
+  }
+
+  onMessage(message: string) {
+    console.log({ message });
+  }
+
+  onTypingChanged(status: 'typing' | 'idle') {
+    console.log({ status });
   }
 }

@@ -2,6 +2,7 @@ import { classes } from '@automapper/classes';
 import { AutomapperModule } from '@automapper/nestjs';
 import { BullModule } from '@nestjs/bull';
 import { Module } from '@nestjs/common';
+import { EventEmitterModule } from '@nestjs/event-emitter';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ChatApiAuth0FeatureModule } from '@nx-mess/chat-api/feature-auth0';
 import { ChatApiConfigFeatureModule } from '@nx-mess/chat-api/feature-config';
@@ -44,6 +45,7 @@ import {
       }),
       inject: [redisConfiguration.KEY],
     }),
+    EventEmitterModule.forRoot(),
     ChatApiUserFeatureModule,
     ChatApiMessageFeatureModule,
     ChatApiNotificationFeatureModule,

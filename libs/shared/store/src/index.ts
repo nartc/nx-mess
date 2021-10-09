@@ -5,3 +5,4 @@ export * from './lib/router/router.selectors';
 export * from './lib/router/router-state.serializer';
 
 export * from './lib/socket/socket.effect';
+export * from './lib/socket/socket.slice';

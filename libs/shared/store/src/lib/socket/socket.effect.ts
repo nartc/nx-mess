@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
+import { Store } from '@ngrx/store';
+import { ClientSocketEvents } from '@nx-mess/shared/utils-socket-constants';
 import { Socket } from 'ngx-socket-io';
 import { tap } from 'rxjs';
-import { AuthActions } from '../auth/auth.slice';
+import { AuthActions, AuthSelectors } from '../auth/auth.slice';
 
 @Injectable()
 export class SocketEffect {
-  constructor(private actions$: Actions, private socket: Socket) {}
+  constructor(
+    private actions$: Actions,
+    private store: Store,
+    private socket: Socket
+  ) {}
 
   readonly connect$ = createEffect(
     () =>
@@ -15,6 +21,7 @@ export class SocketEffect {
         tap(({ user }) => {
           if (user) {
             this.socket.connect();
+            this.socket.emit(ClientSocketEvents.ClientConnected, user.sub);
           }
         })
       ),
@@ -24,9 +31,11 @@ export class SocketEffect {
   readonly disconnect$ = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(AuthActions.logout.success),
-        tap(() => {
+        ofType(AuthActions.logout.trigger),
+        concatLatestFrom(() => this.store.select(AuthSelectors.selectUser)),
+        tap(([, user]) => {
           this.socket.disconnect();
+          this.socket.emit(ClientSocketEvents.ClientDisconnected, user.sub);
         })
       ),
     { dispatch: false }

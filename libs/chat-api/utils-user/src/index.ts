@@ -1,3 +1,2 @@
-export * from './lib/constants/user-queue.actions';
-
-export * from './lib/di/user-queue.di';
+export * from './lib/user-queue.actions';
+export * from './lib/user-queue.di';

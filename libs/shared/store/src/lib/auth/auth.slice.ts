@@ -18,8 +18,7 @@ export const initialAuthState: AuthState = {
 export const {
   actions: AuthActions,
   selectors,
-  name: authName,
-  reducer: authReducer,
+  ...AuthFeature
 } = createSlice({
   name: 'auth',
   initialState: initialAuthState,

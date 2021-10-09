@@ -27,6 +27,12 @@ export class UserProfile extends AutomapperProfile {
       const baseMapping = mapper.getMapping(BaseModel, BaseDto);
 
       mapper.createMap(User, UserDto, { extends: [baseMapping] });
+      mapper.createMap(User, Auth0UserDto, {
+        namingConventions: {
+          source: new CamelCaseNamingConvention(),
+          destination: new SnakeCaseNamingConvention(),
+        },
+      });
       mapper
         .createMap(Auth0UserDto, User, {
           namingConventions: {

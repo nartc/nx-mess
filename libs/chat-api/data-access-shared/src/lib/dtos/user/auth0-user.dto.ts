@@ -40,4 +40,7 @@ export class Auth0UserDto {
   /** Timestamp indicating when the user's profile was last updated/modified. */
   @AutoMap()
   updated_at!: string;
+  /** MongoDB Id */
+  @AutoMap()
+  id!: string;
 }

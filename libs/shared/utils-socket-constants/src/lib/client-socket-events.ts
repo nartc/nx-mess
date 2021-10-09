@@ -1,1 +1,6 @@
-export enum ClientSocketEvents {}
+export enum ClientSocketEvents {
+  SendGeneralMessage = 'SendGeneralMessage',
+
+  ClientConnected = 'ClientConnected',
+  ClientDisconnected = 'ClientDisconnected',
+}

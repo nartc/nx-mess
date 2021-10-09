@@ -4,9 +4,16 @@ import { ChatGeneralStore } from './chat-general.store';
 @Component({
   selector: 'nxc-chat-general',
   template: `
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>General</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
     <ng-container *ngrxLet="vm$; let vm">
       <pre class="flex-1">{{ vm | json }}</pre>
     </ng-container>
+
     <ion-footer>
       <nxc-chat-input
         (typingChange)="onTypingChanged($event)"

@@ -23,5 +23,6 @@ export interface MessageDto {
     attachmentThumbnail?: string;
     attachmentOriginal?: string;
     reactions: { [key: string]: string; };
+    isRead: boolean;
 }
 

@@ -9,6 +9,9 @@ export class Notification extends BaseModel {
   @prop({ ref: () => User })
   @AutoMap({ typeFn: () => User })
   actor!: Ref<User>;
+  @prop({ ref: () => User })
+  @AutoMap({ typeFn: () => User })
+  receiver!: Ref<User>;
   @prop({ default: false })
   @AutoMap()
   isRead!: boolean;

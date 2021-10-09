@@ -26,4 +26,7 @@ export class MessageDto extends BaseDto {
     default: {},
   })
   reactions!: Map<string, MessageReactionType>;
+  @ApiProperty()
+  @AutoMap()
+  isRead!: boolean;
 }

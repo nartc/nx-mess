@@ -1,11 +1,16 @@
 import { InjectMapper } from '@automapper/nestjs';
 import type { Mapper } from '@automapper/types';
-import { BadRequestException, Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import {
   Auth0UserDto,
   BaseService,
   ModelType,
+  UserDto,
 } from '@nx-mess/chat-api/data-access-shared';
 import {
   CREATE_USER_FROM_AUTH0,
@@ -24,7 +29,7 @@ export class UserService extends BaseService<User> {
     super(userModel);
   }
 
-  async createFromAuth0(auth0User: Auth0UserDto) {
+  async createFromAuth0(auth0User: Auth0UserDto): Promise<User> {
     const user = this.mapper.map(auth0User, User, Auth0UserDto);
 
     const exist = await this.findOne().where('email').equals(user.email).exec();
@@ -36,5 +41,17 @@ export class UserService extends BaseService<User> {
     await this.userQueue.add(CREATE_USER_FROM_AUTH0, user);
 
     return user;
+  }
+
+  async getMe(auth0UserId: string): Promise<UserDto> {
+    const user = await this.getUserByAuth0Id(auth0UserId);
+
+    if (!user) throw new NotFoundException('No User found');
+
+    return this.mapper.map(user, UserDto, User);
+  }
+
+  async getUserByAuth0Id(auth0UserId: string): Promise<User> {
+    return await this.findOne().where('userId').equals(auth0UserId).exec();
   }
 }

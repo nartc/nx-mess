@@ -70,6 +70,9 @@
     "chat-api-utils-config": {
       "tags": ["scope:chat-api", "type:feature"]
     },
+    "chat-api-utils-message": {
+      "tags": ["scope:chat-api", "type:utils"]
+    },
     "chat-api-utils-shared": {
       "tags": ["scope:chat-api", "type:utils"]
     },
@@ -114,6 +117,9 @@
       "tags": ["scope:shared", "type:data-access"]
     },
     "shared-data-access-api": {
+      "tags": ["scope:shared", "type:data-access"]
+    },
+    "shared-data-access-dtos": {
       "tags": ["scope:shared", "type:data-access"]
     },
     "shared-environments": {

@@ -51,6 +51,9 @@
       "@nx-mess/chat-api/utils-config": [
         "libs/chat-api/utils-config/src/index.ts"
       ],
+      "@nx-mess/chat-api/utils-message": [
+        "libs/chat-api/utils-message/src/index.ts"
+      ],
       "@nx-mess/chat-api/utils-shared": [
         "libs/chat-api/utils-shared/src/index.ts"
       ],
@@ -84,6 +87,9 @@
       "@nx-mess/shared/data-access": ["libs/shared/data-access/src/index.ts"],
       "@nx-mess/shared/data-access-api": [
         "libs/shared/data-access-api/src/index.ts"
+      ],
+      "@nx-mess/shared/data-access-dtos": [
+        "libs/shared/data-access-dtos/src/index.ts"
       ],
       "@nx-mess/shared/environments": ["libs/shared/environments/src/index.ts"],
       "@nx-mess/shared/store": ["libs/shared/store/src/index.ts"],

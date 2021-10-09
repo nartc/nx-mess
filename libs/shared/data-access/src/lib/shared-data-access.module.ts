@@ -9,8 +9,8 @@ import { ApiModule, Configuration } from '@nx-mess/shared/data-access-api';
 import { environment } from '@nx-mess/shared/environments';
 import {
   AuthEffect,
-  authName,
-  authReducer,
+  AuthFeature,
+  ConnectedSocketFeature,
   CustomRouterStateSerializer,
   routerFeatureKey,
   SocketEffect,
@@ -43,7 +43,8 @@ export function apiConfigurationFactory() {
     StoreModule.forRoot(
       {
         [routerFeatureKey]: routerReducer,
-        [authName]: authReducer,
+        [AuthFeature.name]: AuthFeature.reducer,
+        [ConnectedSocketFeature.name]: ConnectedSocketFeature.reducer,
       },
       {
         metaReducers: environment.production ? [] : [logger],

@@ -1,10 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
-import { Socket } from 'ngx-socket-io';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChatShellStore } from './chat-shell.store';
 
 @Component({
   selector: 'nxc-chat-shell',
   template: `
-    <ion-tabs>
+    <ion-tabs (ionTabsDidChange)="onIonTabsDidChanged($event)">
       <ion-tab-bar slot="bottom">
         <ion-tab-button tab="general">
           <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
@@ -25,11 +25,16 @@ import { Socket } from 'ngx-socket-io';
   `,
   styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [ChatShellStore],
 })
-export class ChatShellPage implements OnDestroy {
-  constructor(private socket: Socket) {}
+export class ChatShellPage implements OnInit {
+  constructor(private chatShellStore: ChatShellStore) {}
 
-  ngOnDestroy() {
-    this.socket.disconnect();
+  ngOnInit() {
+    this.chatShellStore.initEffect();
+  }
+
+  onIonTabsDidChanged({ tab }: { tab: string }) {
+    this.chatShellStore.setSelectedTab(tab);
   }
 }

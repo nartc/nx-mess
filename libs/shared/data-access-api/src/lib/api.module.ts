@@ -3,6 +3,8 @@ import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
 
 import { MessagesApiService } from './api/messages.service';
+import { NotificationsApiService } from './api/notifications.service';
+import { UsersApiService } from './api/users.service';
 
 @NgModule({
   imports:      [],

@@ -5,7 +5,12 @@ import { HttpStatus, INestApplication, Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppConfig, appConfiguration } from '@nx-mess/chat-api/utils-config';
-import { getFullQueueName, USER_QUEUE } from '@nx-mess/chat-api/utils-shared';
+import {
+  getFullQueueName,
+  HttpExceptionFilter,
+  MESSAGE_QUEUE,
+  USER_QUEUE,
+} from '@nx-mess/chat-api/utils-shared';
 
 import * as compression from 'compression';
 import * as helmet from 'helmet';
@@ -53,7 +58,7 @@ function configureBullBoard(
   app: INestApplication,
   bullServerAdapter: ExpressAdapter
 ) {
-  const queues = [USER_QUEUE].map(
+  const queues = [USER_QUEUE, MESSAGE_QUEUE].map(
     (queueName) => new BullAdapter(app.get(getFullQueueName(queueName)))
   );
   const bullBoardPath = '/admin/queues';
@@ -82,6 +87,8 @@ async function bootstrap() {
   configureSwagger(appConfig, app, globalPrefix);
   configureNoContentHandlers(app);
   configureBullBoard(app, bullServerAdapter);
+
+  app.useGlobalFilters(new HttpExceptionFilter());
 
   await app.listen(appConfig.port, () => {
     Logger.log(`Listening on: ${appConfig.domain}/${globalPrefix}`);

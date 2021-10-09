@@ -650,6 +650,39 @@
         }
       }
     },
+    "chat-api-utils-message": {
+      "root": "libs/chat-api/utils-message",
+      "sourceRoot": "libs/chat-api/utils-message/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/chat-api/utils-message",
+            "tsConfig": "libs/chat-api/utils-message/tsconfig.lib.json",
+            "packageJson": "libs/chat-api/utils-message/package.json",
+            "main": "libs/chat-api/utils-message/src/index.ts",
+            "assets": ["libs/chat-api/utils-message/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/chat-api/utils-message/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/chat-api/utils-message"],
+          "options": {
+            "jestConfig": "libs/chat-api/utils-message/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "chat-api-utils-shared": {
       "root": "libs/chat-api/utils-shared",
       "sourceRoot": "libs/chat-api/utils-shared/src",
@@ -1186,6 +1219,38 @@
               "libs/shared/data-access-api/src/**/*.ts",
               "libs/shared/data-access-api/src/**/*.html"
             ]
+          }
+        }
+      }
+    },
+    "shared-data-access-dtos": {
+      "root": "libs/shared/data-access-dtos",
+      "sourceRoot": "libs/shared/data-access-dtos/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/workspace:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/shared/data-access-dtos",
+            "main": "libs/shared/data-access-dtos/src/index.ts",
+            "tsConfig": "libs/shared/data-access-dtos/tsconfig.lib.json",
+            "assets": ["libs/shared/data-access-dtos/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/shared/data-access-dtos/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/data-access-dtos"],
+          "options": {
+            "jestConfig": "libs/shared/data-access-dtos/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }

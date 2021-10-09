@@ -60,6 +60,10 @@ export abstract class BaseService<TModel extends BaseModel> {
     throw new InternalServerErrorException(err, err.errmsg);
   }
 
+  protected toObjectId(id: string) {
+    return new Types.ObjectId(id);
+  }
+
   createModel(doc?: Partial<TModel>) {
     return new this.model(doc) as TModel;
   }
@@ -78,7 +82,7 @@ export abstract class BaseService<TModel extends BaseModel> {
 
   findById(id: string, options?: QueryOptions) {
     return this.model
-      .findById(new Types.ObjectId(id))
+      .findById(this.toObjectId(id))
       .setOptions(BaseService.getQueryOptions(options)) as QueryItem<TModel>;
   }
 

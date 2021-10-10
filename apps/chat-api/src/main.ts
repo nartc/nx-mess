@@ -8,7 +8,6 @@ import { AppConfig, appConfiguration } from '@nx-mess/chat-api/utils-config';
 import {
   getFullQueueName,
   HttpExceptionFilter,
-  MESSAGE_QUEUE,
   USER_QUEUE,
 } from '@nx-mess/chat-api/utils-shared';
 
@@ -58,7 +57,7 @@ function configureBullBoard(
   app: INestApplication,
   bullServerAdapter: ExpressAdapter
 ) {
-  const queues = [USER_QUEUE, MESSAGE_QUEUE].map(
+  const queues = [USER_QUEUE].map(
     (queueName) => new BullAdapter(app.get(getFullQueueName(queueName)))
   );
   const bullBoardPath = '/admin/queues';

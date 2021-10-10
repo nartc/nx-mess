@@ -61,7 +61,7 @@
     "mongoose-autopopulate": "0.15.0",
     "mongoose-lean-virtuals": "0.8.0",
     "ngrx-immer": "1.0.1",
-    "ngrx-slice": "3.1.1",
+    "ngrx-slice": "4.0.0",
     "ngx-socket-io": "4.1.0",
     "passport": "0.4.1",
     "passport-jwt": "4.0.0",

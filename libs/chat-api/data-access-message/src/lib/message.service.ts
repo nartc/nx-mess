@@ -4,10 +4,10 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import {
   BaseService,
+  CreateGeneralMessageDto,
   MessageDto,
   ModelType,
 } from '@nx-mess/chat-api/data-access-shared';
-import { CreateGeneralMessageDto } from '@nx-mess/shared/data-access-dtos';
 import { Message } from './message.model';
 
 @Injectable()
@@ -24,12 +24,19 @@ export class MessageService extends BaseService<Message> {
     return this.mapper.mapArray(messages, MessageDto, Message);
   }
 
-  async createGeneralMessage(dto: CreateGeneralMessageDto): Promise<Message> {
+  async createGeneralMessage(
+    dto: CreateGeneralMessageDto,
+    senderId: string
+  ): Promise<MessageDto> {
     const newMessage = this.createModel({
       text: dto.message,
-      sender: this.toObjectId(dto.senderId),
+      sender: this.toObjectId(senderId),
     });
 
-    return (await this.create(newMessage)) as Message;
+    await this.create(newMessage);
+
+    const message: Message = await this.findById(newMessage.id).exec();
+
+    return this.mapper.map(message, MessageDto, Message);
   }
 }

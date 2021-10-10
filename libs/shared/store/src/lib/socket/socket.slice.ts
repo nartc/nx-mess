@@ -11,6 +11,7 @@ const { name, reducer, actions, selectors } = createSlice({
   initialState: socketAdapter.getInitialState(),
   reducers: {
     add: socketAdapter.addOne,
+    addMany: socketAdapter.addMany,
     remove: socketAdapter.removeOne,
   },
 });

@@ -13,10 +13,10 @@ export class Message extends BaseModel {
   @prop({ required: true })
   @AutoMap()
   text!: string;
-  @prop({ ref: () => User, required: true })
+  @prop({ ref: () => User, required: true, autopopulate: true })
   @AutoMap({ typeFn: () => User })
   sender!: Ref<User>;
-  @prop({ ref: () => User })
+  @prop({ ref: () => User, autopopulate: true })
   @AutoMap({ typeFn: () => User })
   receiver?: Ref<User>;
   @prop({ type: () => MessageAttachment })

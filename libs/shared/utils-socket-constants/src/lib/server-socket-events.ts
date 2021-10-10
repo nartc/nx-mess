@@ -1,9 +1,8 @@
 export enum ServerSocketEvents {
-  BroadcastGeneralMessageSuccess = 'BroadcastGeneralMessageSuccess',
-  BroadcastGeneralMessageFailure = 'BroadcastGeneralMessageFailure',
-
+  BroadcastGeneralMessage = 'BroadcastGeneralMessage',
   BroadcastGeneralMessageNotification = 'BroadcastGeneralMessageNotification',
 
+  Online = 'Online',
   UserOnline = 'UserOnline',
   UserOffline = 'UserOffline',
 }

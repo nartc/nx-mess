@@ -1,13 +1,22 @@
 import { Injectable } from '@angular/core';
-import { ComponentStore } from '@ngrx/component-store';
+import { ComponentStore, tapResponse } from '@ngrx/component-store';
 import { Store } from '@ngrx/store';
 import {
   GeneralMessageActions,
   GeneralMessageSelectors,
 } from '@nx-mess/chat/data-access-chat-general';
-import { MessageDto } from '@nx-mess/shared/data-access-api';
+import {
+  CreateGeneralMessageDto,
+  MessageDto,
+  MessagesApiService,
+} from '@nx-mess/shared/data-access-api';
 import { AuthSelectors, NonNullAuthUser } from '@nx-mess/shared/store';
-import { Observable, tap } from 'rxjs';
+import {
+  ClientSocketEvents,
+  ServerSocketEvents,
+} from '@nx-mess/shared/utils-socket-constants';
+import { Socket } from 'ngx-socket-io';
+import { concatMap, Observable, tap, withLatestFrom } from 'rxjs';
 
 export interface ChatGeneralVm {
   user: NonNullAuthUser;
@@ -21,6 +30,10 @@ export class ChatGeneralStore extends ComponentStore<{}> {
     GeneralMessageSelectors.selectAll
   );
 
+  readonly serverGeneralMessage$ = this.socket.fromEvent<MessageDto>(
+    ServerSocketEvents.BroadcastGeneralMessage
+  );
+
   readonly vm$: Observable<ChatGeneralVm> = this.select(
     this.user$,
     this.generalMessages$,
@@ -28,7 +41,11 @@ export class ChatGeneralStore extends ComponentStore<{}> {
     { debounce: true }
   );
 
-  constructor(private store: Store) {
+  constructor(
+    private store: Store,
+    private socket: Socket,
+    private messagesApiService: MessagesApiService
+  ) {
     super({});
   }
 
@@ -36,6 +53,52 @@ export class ChatGeneralStore extends ComponentStore<{}> {
     $.pipe(
       tap(() => {
         this.getMessagesEffect();
+        this.listenServerGeneralMessageEffect(this.serverGeneralMessage$);
+      })
+    )
+  );
+
+  readonly sendMessageEffect = this.effect<string>((message$) =>
+    message$.pipe(
+      concatMap((message) => {
+        const createGeneralMessageDto: CreateGeneralMessageDto = { message };
+
+        const tempMessageId = Date.now().toString();
+
+        // TODO: prevent flashing because message might be really fast
+        this.store.dispatch(
+          GeneralMessageActions.addEager({
+            eagerMessage: {
+              id: tempMessageId,
+              text: message,
+            },
+          })
+        );
+
+        return this.messagesApiService
+          .createGeneralMessage(createGeneralMessageDto)
+          .pipe(
+            tapResponse(
+              (messageDto) => {
+                this.store.dispatch(
+                  GeneralMessageActions.addSuccess({
+                    id: tempMessageId,
+                    changes: { ...messageDto, isSuccess: true },
+                  })
+                );
+                this.socket.emit(
+                  ClientSocketEvents.SendGeneralMessage,
+                  messageDto
+                );
+              },
+              () => {
+                this.store.dispatch(
+                  // TODO: apply Retry mechanism
+                  GeneralMessageActions.removeEager({ key: tempMessageId })
+                );
+              }
+            )
+          );
       })
     )
   );
@@ -46,5 +109,21 @@ export class ChatGeneralStore extends ComponentStore<{}> {
         this.store.dispatch(GeneralMessageActions.load.trigger());
       })
     )
+  );
+
+  private readonly listenServerGeneralMessageEffect = this.effect<MessageDto>(
+    (message$) =>
+      message$.pipe(
+        withLatestFrom(this.store.select(AuthSelectors.selectUser)),
+        tap(([message, user]) => {
+          if (message.sender.userId !== user.id) {
+            this.store.dispatch(
+              GeneralMessageActions.addServer({
+                entity: { ...message, isSuccess: true },
+              })
+            );
+          }
+        })
+      )
   );
 }

@@ -8,7 +8,7 @@ import {
   ServerSocketEvents,
 } from '@nx-mess/shared/utils-socket-constants';
 import { Socket } from 'ngx-socket-io';
-import { tap, withLatestFrom } from 'rxjs';
+import { distinctUntilKeyChanged, tap, withLatestFrom } from 'rxjs';
 
 export interface ChatShellState {
   selectedTab: 'general' | 'friends' | 'me';
@@ -35,10 +35,14 @@ export class ChatShellStore extends ComponentStore<ChatShellState> {
     $.pipe(
       tap(() => {
         this.userOnlineEffect(
-          this.socket.fromEvent<UserDto>(ServerSocketEvents.UserOnline)
+          this.socket
+            .fromEvent<UserDto>(ServerSocketEvents.UserOnline)
+            .pipe(distinctUntilKeyChanged('userId'))
         );
         this.userOfflineEffect(
-          this.socket.fromEvent<UserDto>(ServerSocketEvents.UserOffline)
+          this.socket
+            .fromEvent<UserDto>(ServerSocketEvents.UserOffline)
+            .pipe(distinctUntilKeyChanged('userId'))
         );
       })
     )

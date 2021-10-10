@@ -9346,10 +9346,10 @@ ngrx-immer@1.0.1:
   dependencies:
     tslib "^2.2.0"
 
-ngrx-slice@3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/ngrx-slice/-/ngrx-slice-3.1.1.tgz#4cfdfae3dc0ebc82121aa3a7a050f2ffbf9d2c19"
-  integrity sha512-R8DS1g1Xx9hVMvknyAWBH9AOjToIsLmiw0WfKNYEXz8ohIpmJ4dhB4MuAEC2Ri/EWvLk4jyGRJ/ivkypXNth8A==
+ngrx-slice@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/ngrx-slice/-/ngrx-slice-4.0.0.tgz#b3492e2ca0932906b4bb5d13d5a655a65d9d9145"
+  integrity sha512-tazXkSzZrpKNRC9ILej72zAB83YonfKTwo2MTm6ape/w3wXdZkngeonr3Srw1/NNl6PuWAmdD8zxso6iapYoCQ==
   dependencies:
     tslib "^2.1.0"
 

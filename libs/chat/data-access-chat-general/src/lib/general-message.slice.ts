@@ -1,8 +1,12 @@
 import { MessageDto } from '@nx-mess/shared/data-access-api';
-import { createSlice, noopReducer } from 'ngrx-slice';
+import { createSlice, noopReducer, PayloadAction } from 'ngrx-slice';
 import { createSliceEntityAdapter } from 'ngrx-slice/entity';
 
-const generalMessageAdapter = createSliceEntityAdapter<MessageDto>({
+export interface GeneralMessageDto extends MessageDto {
+  isSuccess: boolean;
+}
+
+const generalMessageAdapter = createSliceEntityAdapter<GeneralMessageDto>({
   selectId: (message) => message.id,
 });
 
@@ -14,6 +18,18 @@ const { name, reducer, selectors, actions } = createSlice({
       success: generalMessageAdapter.setAll,
       trigger: noopReducer(),
     },
+    addEager: (
+      state,
+      { eagerMessage }: PayloadAction<{ eagerMessage: Partial<MessageDto> }>
+    ) => {
+      generalMessageAdapter.addOne(state, {
+        ...eagerMessage,
+        isSuccess: false,
+      } as GeneralMessageDto);
+    },
+    addSuccess: generalMessageAdapter.updateOne,
+    removeEager: generalMessageAdapter.removeOne,
+    addServer: generalMessageAdapter.addOne,
   },
 });
 

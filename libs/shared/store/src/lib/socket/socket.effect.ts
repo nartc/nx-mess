@@ -1,10 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { ClientSocketEvents } from '@nx-mess/shared/utils-socket-constants';
+import { UserDto } from '@nx-mess/shared/data-access-api';
+import {
+  ClientSocketEvents,
+  ServerSocketEvents,
+} from '@nx-mess/shared/utils-socket-constants';
 import { Socket } from 'ngx-socket-io';
-import { tap } from 'rxjs';
+import { map, tap } from 'rxjs';
 import { AuthActions, AuthSelectors } from '../auth/auth.slice';
+import { ConnectedSocketActions } from './socket.slice';
 
 @Injectable()
 export class SocketEffect {
@@ -13,6 +18,16 @@ export class SocketEffect {
     private store: Store,
     private socket: Socket
   ) {}
+
+  readonly online$ = createEffect(() =>
+    this.socket
+      .fromEvent<UserDto[]>(ServerSocketEvents.Online)
+      .pipe(
+        map((connectedUsers) =>
+          ConnectedSocketActions.addMany({ entities: connectedUsers })
+        )
+      )
+  );
 
   readonly connect$ = createEffect(
     () =>

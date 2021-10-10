@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { map, switchMap, tap } from 'rxjs';
+import { map, switchMap, take, tap } from 'rxjs';
 import { AuthActions } from './auth.slice';
 
 @Injectable()
@@ -29,6 +29,7 @@ export class AuthEffect {
       ofType(AuthActions.check.trigger),
       switchMap(() =>
         this.auth.user$.pipe(
+          take(1),
           map((userOrNull) => AuthActions.check.success({ user: userOrNull }))
         )
       )

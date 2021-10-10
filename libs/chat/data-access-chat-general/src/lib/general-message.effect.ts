@@ -17,7 +17,12 @@ export class GeneralMessageEffect {
       switchMap(() =>
         this.messagesApiService.getAll().pipe(
           map((messages) =>
-            GeneralMessageActions.load.success({ entities: messages })
+            GeneralMessageActions.load.success({
+              entities: messages.map((message) => ({
+                ...message,
+                isSuccess: true,
+              })),
+            })
           ),
           catchError(() =>
             of(GeneralMessageActions.load.success({ entities: [] }))

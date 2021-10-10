@@ -35,7 +35,7 @@ export class ChatGeneralPage implements OnInit {
   }
 
   onMessage(message: string) {
-    console.log({ message });
+    this.chatGeneralStore.sendMessageEffect(message);
   }
 
   onTypingChanged(status: 'typing' | 'idle') {

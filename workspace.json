@@ -716,6 +716,47 @@
         }
       }
     },
+    "chat-data-access-api": {
+      "projectType": "library",
+      "root": "libs/chat/data-access-api",
+      "sourceRoot": "libs/chat/data-access-api/src",
+      "prefix": "nxc",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/chat/data-access-api"],
+          "options": {
+            "project": "libs/chat/data-access-api/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/chat/data-access-api/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/chat/data-access-api/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/chat/data-access-api"],
+          "options": {
+            "jestConfig": "libs/chat/data-access-api/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/chat/data-access-api/src/**/*.ts",
+              "libs/chat/data-access-api/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "chat-data-access-chat-general": {
       "projectType": "library",
       "root": "libs/chat/data-access-chat-general",
@@ -1102,6 +1143,47 @@
         }
       }
     },
+    "chat-ui-messages-container": {
+      "projectType": "library",
+      "root": "libs/chat/ui-messages-container",
+      "sourceRoot": "libs/chat/ui-messages-container/src",
+      "prefix": "nxc",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/chat/ui-messages-container"],
+          "options": {
+            "project": "libs/chat/ui-messages-container/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/chat/ui-messages-container/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/chat/ui-messages-container/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/chat/ui-messages-container"],
+          "options": {
+            "jestConfig": "libs/chat/ui-messages-container/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/chat/ui-messages-container/src/**/*.ts",
+              "libs/chat/ui-messages-container/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "shared-assets": {
       "root": "libs/shared/assets",
       "sourceRoot": "libs/shared/assets/src",
@@ -1144,47 +1226,6 @@
             "lintFilePatterns": [
               "libs/shared/data-access/src/**/*.ts",
               "libs/shared/data-access/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
-    "shared-data-access-api": {
-      "projectType": "library",
-      "root": "libs/shared/data-access-api",
-      "sourceRoot": "libs/shared/data-access-api/src",
-      "prefix": "nxc",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/angular:ng-packagr-lite",
-          "outputs": ["dist/libs/shared/data-access-api"],
-          "options": {
-            "project": "libs/shared/data-access-api/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/shared/data-access-api/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/shared/data-access-api/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/data-access-api"],
-          "options": {
-            "jestConfig": "libs/shared/data-access-api/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/shared/data-access-api/src/**/*.ts",
-              "libs/shared/data-access-api/src/**/*.html"
             ]
           }
         }
@@ -1268,6 +1309,38 @@
       "sourceRoot": "libs/shared/styles/src",
       "projectType": "library",
       "targets": {}
+    },
+    "shared-utils-array-partition": {
+      "root": "libs/shared/utils-array-partition",
+      "sourceRoot": "libs/shared/utils-array-partition/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/workspace:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/shared/utils-array-partition",
+            "main": "libs/shared/utils-array-partition/src/index.ts",
+            "tsConfig": "libs/shared/utils-array-partition/tsconfig.lib.json",
+            "assets": ["libs/shared/utils-array-partition/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/shared/utils-array-partition/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/utils-array-partition"],
+          "options": {
+            "jestConfig": "libs/shared/utils-array-partition/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     },
     "shared-utils-socket-constants": {
       "root": "libs/shared/utils-socket-constants",

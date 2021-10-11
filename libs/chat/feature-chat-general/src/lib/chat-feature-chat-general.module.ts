@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { ChatDataAccessChatGeneralModule } from '@nx-mess/chat/data-access-chat-general';
 import { ChatUiChatInputModule } from '@nx-mess/chat/ui-chat-input';
+import { ChatUiMessagesContainerModule } from '@nx-mess/chat/ui-messages-container';
 import { ChatGeneralPage } from './chat-general.page';
 
 @NgModule({
@@ -17,6 +18,7 @@ import { ChatGeneralPage } from './chat-general.page';
     IonicModule,
     ReactiveFormsModule,
     ChatUiChatInputModule,
+    ChatUiMessagesContainerModule,
   ],
   declarations: [ChatGeneralPage],
 })

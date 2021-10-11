@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ComponentStore } from '@ngrx/component-store';
+import { ImmerComponentStore } from 'ngrx-immer/component-store';
 import { map, Observable, Subject, tap, withLatestFrom } from 'rxjs';
 
 export interface ChatInputState {
@@ -19,7 +19,7 @@ export interface ChatInputVm {
 }
 
 @Injectable()
-export class ChatInputStore extends ComponentStore<ChatInputState> {
+export class ChatInputStore extends ImmerComponentStore<ChatInputState> {
   readonly message$ = this.select((s) => s.message);
   readonly status$ = this.select((s) => s.status, { debounce: true });
   readonly sendButtonState$ = this.select((s) => s.sendButtonState);
@@ -40,10 +40,9 @@ export class ChatInputStore extends ComponentStore<ChatInputState> {
     super(chatInputInitialState);
   }
 
-  readonly setMessage = this.updater<string>((state, message) => ({
-    ...state,
-    message,
-  }));
+  readonly setMessage = this.updater<string>((state, message) => {
+    state.message = message;
+  });
 
   readonly initEffect = this.effect(($) =>
     $.pipe(

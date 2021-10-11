@@ -9,10 +9,10 @@
     "test": "nx test",
     "lint": "nx workspace-lint && nx lint",
     "postinstall": "ngcc --properties es2015 browser module main",
-    "start:server": "nx run chat-api:serve-dev",
+    "start:server": "nx serve-dev chat-api",
     "start:ion": "nx serve chat",
     "ngrok": "npx ngrok http 3000 --host-header='localhost:3000'",
-    "api:gen": "openapi-generator-cli generate -i http://localhost:3000/api/docs-json -g typescript-angular -o libs/shared/data-access-api/src/lib -c openapi-generator-ts-angular.config.json"
+    "api:gen": "openapi-generator-cli generate -i http://localhost:3000/api/docs-json -g typescript-angular -o libs/chat/data-access-api/src/lib -c openapi-generator-ts-angular.config.json"
   },
   "private": true,
   "dependencies": {

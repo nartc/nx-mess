@@ -1,4 +1,9 @@
-import { mapFrom, mapWith, preCondition } from '@automapper/core';
+import {
+  mapFrom,
+  mapWith,
+  nullSubstitution,
+  preCondition,
+} from '@automapper/core';
 import { AutomapperProfile, InjectMapper } from '@automapper/nestjs';
 import { Mapper, MappingProfile } from '@automapper/types';
 import { Injectable } from '@nestjs/common';
@@ -35,7 +40,9 @@ export class MessageProfile extends AutomapperProfile {
           (d) => d.receiver,
           preCondition((s) => !!s.receiver),
           mapWith(UserDto, User, (s) => s.receiver)
-        );
+        )
+        .forMember((d) => d.attachmentThumbnail, nullSubstitution(''))
+        .forMember((d) => d.attachmentOriginal, nullSubstitution(''));
     };
   }
 }

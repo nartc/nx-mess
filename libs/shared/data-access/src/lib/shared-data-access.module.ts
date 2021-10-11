@@ -5,7 +5,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { ApiModule, Configuration } from '@nx-mess/shared/data-access-api';
+import { ApiModule, Configuration } from '@nx-mess/chat/data-access-api';
 import { environment } from '@nx-mess/shared/environments';
 import {
   AuthEffect,

@@ -2,15 +2,16 @@ import { Injectable } from '@angular/core';
 import { ComponentStore, tapResponse } from '@ngrx/component-store';
 import { Store } from '@ngrx/store';
 import {
-  GeneralMessageActions,
-  GeneralMessageSelectors,
-} from '@nx-mess/chat/data-access-chat-general';
-import {
   CreateGeneralMessageDto,
   MessageDto,
   MessagesApiService,
-} from '@nx-mess/shared/data-access-api';
+} from '@nx-mess/chat/data-access-api';
+import {
+  GeneralMessageActions,
+  GeneralMessageSelectors,
+} from '@nx-mess/chat/data-access-chat-general';
 import { AuthSelectors, NonNullAuthUser } from '@nx-mess/shared/store';
+import { arrayPartition } from '@nx-mess/shared/utils-array-partition';
 import {
   ClientSocketEvents,
   ServerSocketEvents,
@@ -20,24 +21,28 @@ import { concatMap, Observable, tap, withLatestFrom } from 'rxjs';
 
 export interface ChatGeneralVm {
   user: NonNullAuthUser;
-  messages: MessageDto[];
+  successMessages: MessageDto[];
+  eagerMessage: MessageDto;
 }
 
 @Injectable()
 export class ChatGeneralStore extends ComponentStore<{}> {
   readonly user$ = this.store.select(AuthSelectors.selectUser);
-  readonly generalMessages$ = this.store.select(
-    GeneralMessageSelectors.selectAll
-  );
-
-  readonly serverGeneralMessage$ = this.socket.fromEvent<MessageDto>(
-    ServerSocketEvents.BroadcastGeneralMessage
-  );
 
   readonly vm$: Observable<ChatGeneralVm> = this.select(
     this.user$,
-    this.generalMessages$,
-    (user, messages) => ({ user, messages }),
+    this.store.select(GeneralMessageSelectors.selectAll),
+    (user, messages) => {
+      const [successMessages, eagerMessages] = arrayPartition(
+        messages,
+        (message) => message.isSuccess
+      );
+      return {
+        user,
+        successMessages,
+        eagerMessage: eagerMessages[0],
+      };
+    },
     { debounce: true }
   );
 
@@ -53,7 +58,11 @@ export class ChatGeneralStore extends ComponentStore<{}> {
     $.pipe(
       tap(() => {
         this.getMessagesEffect();
-        this.listenServerGeneralMessageEffect(this.serverGeneralMessage$);
+        this.listenServerGeneralMessageEffect(
+          this.socket.fromEvent<MessageDto>(
+            ServerSocketEvents.BroadcastGeneralMessage
+          )
+        );
       })
     )
   );

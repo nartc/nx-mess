@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { UserDto } from '@nx-mess/shared/data-access-api';
+import { UserDto } from '@nx-mess/chat/data-access-api';
 import {
   ClientSocketEvents,
   ServerSocketEvents,

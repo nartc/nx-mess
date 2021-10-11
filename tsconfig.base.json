@@ -55,6 +55,9 @@
         "libs/chat-api/utils-shared/src/index.ts"
       ],
       "@nx-mess/chat-api/utils-user": ["libs/chat-api/utils-user/src/index.ts"],
+      "@nx-mess/chat/data-access-api": [
+        "libs/chat/data-access-api/src/index.ts"
+      ],
       "@nx-mess/chat/data-access-chat-general": [
         "libs/chat/data-access-chat-general/src/index.ts"
       ],
@@ -74,6 +77,9 @@
       "@nx-mess/chat/feature-shell": ["libs/chat/feature-shell/src/index.ts"],
       "@nx-mess/chat/styles-shared": ["libs/chat/styles-shared/src/index.ts"],
       "@nx-mess/chat/ui-chat-input": ["libs/chat/ui-chat-input/src/index.ts"],
+      "@nx-mess/chat/ui-messages-container": [
+        "libs/chat/ui-messages-container/src/index.ts"
+      ],
       "@nx-mess/shared-data-access-temp": [
         "libs/shared/data-access-temp/src/index.ts"
       ],
@@ -82,12 +88,12 @@
       ],
       "@nx-mess/shared/assets": ["libs/shared/assets/src/index.ts"],
       "@nx-mess/shared/data-access": ["libs/shared/data-access/src/index.ts"],
-      "@nx-mess/shared/data-access-api": [
-        "libs/shared/data-access-api/src/index.ts"
-      ],
       "@nx-mess/shared/environments": ["libs/shared/environments/src/index.ts"],
       "@nx-mess/shared/store": ["libs/shared/store/src/index.ts"],
       "@nx-mess/shared/styles": ["libs/shared/styles/src/index.ts"],
+      "@nx-mess/shared/utils-array-partition": [
+        "libs/shared/utils-array-partition/src/index.ts"
+      ],
       "@nx-mess/shared/utils-socket-constants": [
         "libs/shared/utils-socket-constants/src/index.ts"
       ]

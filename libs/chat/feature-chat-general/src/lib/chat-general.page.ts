@@ -11,7 +11,10 @@ import { ChatGeneralStore } from './chat-general.store';
     </ion-header>
 
     <ng-container *ngrxLet="vm$; let vm">
-      <pre class="flex-1">{{ vm | json }}</pre>
+      <nxc-messages-container
+        [messages]="vm.successMessages"
+      ></nxc-messages-container>
+      <pre>{{ vm.eagerMessage | json }}</pre>
     </ng-container>
 
     <ion-footer>

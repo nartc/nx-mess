@@ -1,4 +1,4 @@
-import { MessageDto } from '@nx-mess/shared/data-access-api';
+import { MessageDto } from '@nx-mess/chat/data-access-api';
 import { createSlice, noopReducer, PayloadAction } from 'ngrx-slice';
 import { createSliceEntityAdapter } from 'ngrx-slice/entity';
 

@@ -1,4 +1,4 @@
-import { UserDto } from '@nx-mess/shared/data-access-api';
+import { UserDto } from '@nx-mess/chat/data-access-api';
 import { createSlice } from 'ngrx-slice';
 import { createSliceEntityAdapter } from 'ngrx-slice/entity';
 

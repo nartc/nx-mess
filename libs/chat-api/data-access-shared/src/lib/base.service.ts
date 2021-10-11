@@ -18,6 +18,7 @@ interface QueryOptions {
 
 export type EnforceDocumentType<TModel extends BaseModel> = EnforceDocument<
   DocumentType<TModel>,
+  Record<string, unknown>,
   Record<string, unknown>
 >;
 

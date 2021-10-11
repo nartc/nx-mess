@@ -76,6 +76,9 @@
     "chat-api-utils-user": {
       "tags": ["scope:chat-api", "type:utils"]
     },
+    "chat-data-access-api": {
+      "tags": ["scope:shared", "type:data-access"]
+    },
     "chat-data-access-chat-general": {
       "tags": ["scope:chat", "type:data-access"]
     },
@@ -107,13 +110,13 @@
     "chat-ui-chat-input": {
       "tags": ["scope:chat", "type:ui"]
     },
+    "chat-ui-messages-container": {
+      "tags": ["scope:chat", "type:ui"]
+    },
     "shared-assets": {
       "tags": ["scope:shared", "type:assets"]
     },
     "shared-data-access": {
-      "tags": ["scope:shared", "type:data-access"]
-    },
-    "shared-data-access-api": {
       "tags": ["scope:shared", "type:data-access"]
     },
     "shared-environments": {
@@ -124,6 +127,9 @@
     },
     "shared-styles": {
       "tags": []
+    },
+    "shared-utils-array-partition": {
+      "tags": ["scope:shared", "type:utils"]
     },
     "shared-utils-socket-constants": {
       "tags": ["scope:shared", "type:util"]

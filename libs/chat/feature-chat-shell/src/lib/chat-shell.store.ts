@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { ComponentStore } from '@ngrx/component-store';
 import { Store } from '@ngrx/store';
-import { UserDto } from '@nx-mess/shared/data-access-api';
+import { UserDto } from '@nx-mess/chat/data-access-api';
 import { AuthSelectors, ConnectedSocketActions } from '@nx-mess/shared/store';
 import {
   ClientSocketEvents,
   ServerSocketEvents,
 } from '@nx-mess/shared/utils-socket-constants';
+import { ImmerComponentStore } from 'ngrx-immer/component-store';
 import { Socket } from 'ngx-socket-io';
 import { distinctUntilKeyChanged, tap, withLatestFrom } from 'rxjs';
 
@@ -19,17 +19,16 @@ export const chatShellInitialState: ChatShellState = {
 };
 
 @Injectable()
-export class ChatShellStore extends ComponentStore<ChatShellState> {
+export class ChatShellStore extends ImmerComponentStore<ChatShellState> {
   readonly selectedTab$ = this.select((s) => s.selectedTab);
 
   constructor(private socket: Socket, private store: Store) {
     super(chatShellInitialState);
   }
 
-  readonly setSelectedTab = this.updater<string>((state, selectedTab) => ({
-    ...state,
-    selectedTab: selectedTab as ChatShellState['selectedTab'],
-  }));
+  readonly setSelectedTab = this.updater<string>((state, selectedTab) => {
+    state.selectedTab = selectedTab as ChatShellState['selectedTab'];
+  });
 
   readonly initEffect = this.effect(($) =>
     $.pipe(

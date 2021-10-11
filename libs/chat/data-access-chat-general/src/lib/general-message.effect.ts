@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { MessagesApiService } from '@nx-mess/chat/data-access-api';
 import { GeneralMessageActions } from '@nx-mess/chat/data-access-chat-general';
-import { MessagesApiService } from '@nx-mess/shared/data-access-api';
 import { catchError, map, of, switchMap } from 'rxjs';
 
 @Injectable()

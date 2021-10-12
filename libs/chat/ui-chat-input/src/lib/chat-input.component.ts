@@ -17,6 +17,7 @@ import { ChatInputStore } from './chat-input.store';
         class="p-2 rounded border bg-white"
         placeholder="Say something..."
         [formControl]="messageControl"
+        (keyup.shift.enter)="onShiftEnter()"
       ></ion-textarea>
       <ion-button (click)="onSendClick()" [disabled]="vm.isSendDisabled">
         <ion-icon slot="icon-only" name="send-outline"></ion-icon>
@@ -50,5 +51,9 @@ export class ChatInputComponent implements OnInit {
   onSendClick() {
     this.chatInputStore.sendMessage();
     this.messageControl.reset('');
+  }
+
+  onShiftEnter() {
+    this.onSendClick();
   }
 }

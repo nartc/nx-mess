@@ -798,6 +798,47 @@
         }
       }
     },
+    "chat-data-access-chat-shell": {
+      "projectType": "library",
+      "root": "libs/chat/data-access-chat-shell",
+      "sourceRoot": "libs/chat/data-access-chat-shell/src",
+      "prefix": "nxc",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/chat/data-access-chat-shell"],
+          "options": {
+            "project": "libs/chat/data-access-chat-shell/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/chat/data-access-chat-shell/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/chat/data-access-chat-shell/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/chat/data-access-chat-shell"],
+          "options": {
+            "jestConfig": "libs/chat/data-access-chat-shell/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/chat/data-access-chat-shell/src/**/*.ts",
+              "libs/chat/data-access-chat-shell/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "chat-e2e": {
       "root": "apps/chat-e2e",
       "sourceRoot": "apps/chat-e2e/src",

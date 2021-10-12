@@ -82,6 +82,9 @@
     "chat-data-access-chat-general": {
       "tags": ["scope:chat", "type:data-access"]
     },
+    "chat-data-access-chat-shell": {
+      "tags": ["scope:chat", "type:data-access"]
+    },
     "chat-e2e": {
       "tags": [],
       "implicitDependencies": ["chat"]

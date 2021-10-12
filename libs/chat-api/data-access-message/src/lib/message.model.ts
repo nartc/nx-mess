@@ -24,7 +24,4 @@ export class Message extends BaseModel {
   attachment?: MessageAttachment;
   @prop({ type: () => String, default: {} })
   reactions!: Map<string, MessageReactionType>;
-  @prop({ default: false })
-  @AutoMap()
-  isRead!: boolean;
 }

@@ -10,35 +10,30 @@ import {
   GeneralMessageActions,
   GeneralMessageSelectors,
 } from '@nx-mess/chat/data-access-chat-general';
-import { AuthSelectors, NonNullAuthUser } from '@nx-mess/shared/store';
+import { ChatShellStore } from '@nx-mess/chat/data-access-chat-shell';
 import { arrayPartition } from '@nx-mess/shared/utils-array-partition';
 import {
   ClientSocketEvents,
   ServerSocketEvents,
 } from '@nx-mess/shared/utils-socket-constants';
 import { Socket } from 'ngx-socket-io';
-import { concatMap, Observable, tap, withLatestFrom } from 'rxjs';
+import { concatMap, Observable, tap } from 'rxjs';
 
 export interface ChatGeneralVm {
-  user: NonNullAuthUser;
   successMessages: MessageDto[];
   eagerMessage: MessageDto;
 }
 
 @Injectable()
 export class ChatGeneralStore extends ComponentStore<{}> {
-  readonly user$ = this.store.select(AuthSelectors.selectUser);
-
   readonly vm$: Observable<ChatGeneralVm> = this.select(
-    this.user$,
     this.store.select(GeneralMessageSelectors.selectAll),
-    (user, messages) => {
+    (messages) => {
       const [successMessages, eagerMessages] = arrayPartition(
         messages,
         (message) => message.isSuccess
       );
       return {
-        user,
         successMessages,
         eagerMessage: eagerMessages[0],
       };
@@ -49,7 +44,8 @@ export class ChatGeneralStore extends ComponentStore<{}> {
   constructor(
     private store: Store,
     private socket: Socket,
-    private messagesApiService: MessagesApiService
+    private messagesApiService: MessagesApiService,
+    private chatShellStore: ChatShellStore
   ) {
     super({});
   }
@@ -123,15 +119,13 @@ export class ChatGeneralStore extends ComponentStore<{}> {
   private readonly listenServerGeneralMessageEffect = this.effect<MessageDto>(
     (message$) =>
       message$.pipe(
-        withLatestFrom(this.store.select(AuthSelectors.selectUser)),
-        tap(([message, user]) => {
-          if (message.sender.userId !== user.id) {
-            this.store.dispatch(
-              GeneralMessageActions.addServer({
-                entity: { ...message, isSuccess: true },
-              })
-            );
-          }
+        tap((message) => {
+          this.store.dispatch(
+            GeneralMessageActions.addServer({
+              entity: { ...message, isSuccess: true },
+            })
+          );
+          this.chatShellStore.updateGeneralBadgeCountEffect('increment');
         })
       )
   );

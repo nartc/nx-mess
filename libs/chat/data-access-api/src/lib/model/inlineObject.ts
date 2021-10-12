@@ -9,16 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { UserDto } from './userDto';
 
 
-export interface NotificationDto { 
-    createdAt: string;
-    updatedAt: string;
-    active: boolean;
-    id: string;
-    actor: UserDto;
-    receiver: UserDto;
-    isRead: boolean;
+export interface InlineObject { 
+    picture: string;
 }
 

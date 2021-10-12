@@ -22,5 +22,9 @@ export class MessageGateway extends ConnectedGateway {
     @MessageBody() dto: MessageDto
   ) {
     client.broadcast.emit(ServerSocketEvents.BroadcastGeneralMessage, dto);
+    client.broadcast.emit(
+      ServerSocketEvents.BroadcastGeneralMessageNotification,
+      dto
+    );
   }
 }

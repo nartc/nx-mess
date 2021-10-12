@@ -15,6 +15,7 @@ import {
 import {
   CREATE_USER_FROM_AUTH0,
   InjectUserQueue,
+  UPDATE_USER_FROM_AUTH0,
 } from '@nx-mess/chat-api/utils-user';
 import { Queue } from 'bull';
 import { User } from './user.model';
@@ -29,7 +30,7 @@ export class UserService extends BaseService<User> {
     super(userModel);
   }
 
-  async createFromAuth0(auth0User: Auth0UserDto): Promise<User> {
+  async createFromAuth0(auth0User: Auth0UserDto) {
     const user = this.mapper.map(auth0User, User, Auth0UserDto);
 
     const exist = await this.findOne().where('email').equals(user.email).exec();
@@ -39,8 +40,15 @@ export class UserService extends BaseService<User> {
     }
 
     await this.userQueue.add(CREATE_USER_FROM_AUTH0, user);
+  }
 
-    return user;
+  async updateUserPictureFromAuth0(auth0Id: string, picture: string) {
+    const user = await this.getUserByAuth0Id(auth0Id);
+    if (!user) throw new NotFoundException('No User found');
+
+    if (user.picture === picture) return;
+
+    await this.userQueue.add(UPDATE_USER_FROM_AUTH0, { ...user, picture });
   }
 
   async getMe(auth0UserId: string): Promise<UserDto> {

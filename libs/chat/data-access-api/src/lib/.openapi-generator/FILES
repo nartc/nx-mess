@@ -11,6 +11,7 @@ git_push.sh
 index.ts
 model/apiException.ts
 model/createGeneralMessageDto.ts
+model/inlineObject.ts
 model/messageDto.ts
 model/models.ts
 model/notificationDto.ts

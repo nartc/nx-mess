@@ -27,115 +27,24 @@
       }
     ]
   },
-  "projects": {
-    "chat": {
-      "tags": ["scope:apps/chat", "type:application"]
+  "cli": {
+    "defaultCollection": "@nrwl/nest"
+  },
+  "generators": {
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
     },
-    "chat-api": {
-      "tags": []
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
     },
-    "chat-api-data-access-auth0": {
-      "tags": ["scope:chat-api", "type:data-access"]
-    },
-    "chat-api-data-access-message": {
-      "tags": ["scope:chat-api", "type:data-access"]
-    },
-    "chat-api-data-access-notification": {
-      "tags": ["scope:chat-api", "type:data-access"]
-    },
-    "chat-api-data-access-shared": {
-      "tags": ["scope:chat-api", "type:data-access"]
-    },
-    "chat-api-data-access-user": {
-      "tags": ["scope:chat-api", "type:data-access"]
-    },
-    "chat-api-feature-auth0": {
-      "tags": ["scope:chat-api", "type:feature"]
-    },
-    "chat-api-feature-config": {
-      "tags": ["scope:chat-api", "type:feature"]
-    },
-    "chat-api-feature-message": {
-      "tags": ["scope:chat-api", "type:feature"]
-    },
-    "chat-api-feature-notification": {
-      "tags": ["scope:chat-api", "type:feature"]
-    },
-    "chat-api-feature-user": {
-      "tags": ["scope:chat-api", "type:feature"]
-    },
-    "chat-api-mappings-shared": {
-      "tags": ["scope:chat-api", "type:mappings"]
-    },
-    "chat-api-utils-config": {
-      "tags": ["scope:chat-api", "type:feature"]
-    },
-    "chat-api-utils-shared": {
-      "tags": ["scope:chat-api", "type:utils"]
-    },
-    "chat-api-utils-user": {
-      "tags": ["scope:chat-api", "type:utils"]
-    },
-    "chat-data-access-api": {
-      "tags": ["scope:shared", "type:data-access"]
-    },
-    "chat-data-access-chat-general": {
-      "tags": ["scope:chat", "type:data-access"]
-    },
-    "chat-data-access-chat-shell": {
-      "tags": ["scope:chat", "type:data-access"]
-    },
-    "chat-e2e": {
-      "tags": [],
-      "implicitDependencies": ["chat"]
-    },
-    "chat-feature-chat-friends": {
-      "tags": ["scope:chat", "type:feature"]
-    },
-    "chat-feature-chat-general": {
-      "tags": ["scope:chat", "type:feature"]
-    },
-    "chat-feature-chat-me": {
-      "tags": ["scope:chat", "type:feature"]
-    },
-    "chat-feature-chat-shell": {
-      "tags": ["scope:chat", "type:feature"]
-    },
-    "chat-feature-home": {
-      "tags": ["scope:chat", "type:feature"]
-    },
-    "chat-feature-shell": {
-      "tags": ["scope:chat", "type:feature"]
-    },
-    "chat-styles-shared": {
-      "tags": []
-    },
-    "chat-ui-chat-input": {
-      "tags": ["scope:chat", "type:ui"]
-    },
-    "chat-ui-messages-container": {
-      "tags": ["scope:chat", "type:ui"]
-    },
-    "shared-assets": {
-      "tags": ["scope:shared", "type:assets"]
-    },
-    "shared-data-access": {
-      "tags": ["scope:shared", "type:data-access"]
-    },
-    "shared-environments": {
-      "tags": ["scope:shared", "type:environments"]
-    },
-    "shared-store": {
-      "tags": []
-    },
-    "shared-styles": {
-      "tags": []
-    },
-    "shared-utils-array-partition": {
-      "tags": ["scope:shared", "type:utils"]
-    },
-    "shared-utils-socket-constants": {
-      "tags": ["scope:shared", "type:util"]
+    "@nrwl/angular:component": {
+      "style": "scss"
     }
-  }
+  },
+  "defaultProject": "chat-api"
 }

@@ -197,7 +197,8 @@
             }
           }
         }
-      }
+      },
+      "tags": ["scope:apps/chat", "type:application"]
     },
     "chat-api": {
       "root": "apps/chat-api",
@@ -250,7 +251,8 @@
             "parallel": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "chat-api-data-access-auth0": {
       "root": "libs/chat-api/data-access-auth0",
@@ -283,7 +285,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["scope:chat-api", "type:data-access"]
     },
     "chat-api-data-access-message": {
       "root": "libs/chat-api/data-access-message",
@@ -316,7 +319,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["scope:chat-api", "type:data-access"]
     },
     "chat-api-data-access-notification": {
       "root": "libs/chat-api/data-access-notification",
@@ -351,7 +355,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["scope:chat-api", "type:data-access"]
     },
     "chat-api-data-access-shared": {
       "root": "libs/chat-api/data-access-shared",
@@ -384,7 +389,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["scope:chat-api", "type:data-access"]
     },
     "chat-api-data-access-user": {
       "root": "libs/chat-api/data-access-user",
@@ -417,7 +423,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["scope:chat-api", "type:data-access"]
     },
     "chat-api-feature-auth0": {
       "root": "libs/chat-api/feature-auth0",
@@ -450,7 +457,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["scope:chat-api", "type:feature"]
     },
     "chat-api-feature-config": {
       "root": "libs/chat-api/feature-config",
@@ -483,7 +491,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["scope:chat-api", "type:feature"]
     },
     "chat-api-feature-message": {
       "root": "libs/chat-api/feature-message",
@@ -516,7 +525,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["scope:chat-api", "type:feature"]
     },
     "chat-api-feature-notification": {
       "root": "libs/chat-api/feature-notification",
@@ -549,7 +559,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["scope:chat-api", "type:feature"]
     },
     "chat-api-feature-user": {
       "root": "libs/chat-api/feature-user",
@@ -582,7 +593,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["scope:chat-api", "type:feature"]
     },
     "chat-api-mappings-shared": {
       "root": "libs/chat-api/mappings-shared",
@@ -615,7 +627,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["scope:chat-api", "type:mappings"]
     },
     "chat-api-utils-config": {
       "root": "libs/chat-api/utils-config",
@@ -648,7 +661,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["scope:chat-api", "type:feature"]
     },
     "chat-api-utils-shared": {
       "root": "libs/chat-api/utils-shared",
@@ -681,7 +695,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["scope:chat-api", "type:utils"]
     },
     "chat-api-utils-user": {
       "root": "libs/chat-api/utils-user",
@@ -714,7 +729,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["scope:chat-api", "type:utils"]
     },
     "chat-data-access-api": {
       "projectType": "library",
@@ -755,7 +771,8 @@
             ]
           }
         }
-      }
+      },
+      "tags": ["scope:shared", "type:data-access"]
     },
     "chat-data-access-chat-general": {
       "projectType": "library",
@@ -796,7 +813,8 @@
             ]
           }
         }
-      }
+      },
+      "tags": ["scope:chat", "type:data-access"]
     },
     "chat-data-access-chat-shell": {
       "projectType": "library",
@@ -837,7 +855,8 @@
             ]
           }
         }
-      }
+      },
+      "tags": ["scope:chat", "type:data-access"]
     },
     "chat-e2e": {
       "root": "apps/chat-e2e",
@@ -863,7 +882,9 @@
             "lintFilePatterns": ["apps/chat-e2e/**/*.{js,ts}"]
           }
         }
-      }
+      },
+      "tags": [],
+      "implicitDependencies": ["chat"]
     },
     "chat-feature-chat-friends": {
       "projectType": "library",
@@ -904,7 +925,8 @@
             ]
           }
         }
-      }
+      },
+      "tags": ["scope:chat", "type:feature"]
     },
     "chat-feature-chat-general": {
       "projectType": "library",
@@ -945,7 +967,8 @@
             ]
           }
         }
-      }
+      },
+      "tags": ["scope:chat", "type:feature"]
     },
     "chat-feature-chat-me": {
       "projectType": "library",
@@ -986,7 +1009,8 @@
             ]
           }
         }
-      }
+      },
+      "tags": ["scope:chat", "type:feature"]
     },
     "chat-feature-chat-shell": {
       "projectType": "library",
@@ -1027,7 +1051,8 @@
             ]
           }
         }
-      }
+      },
+      "tags": ["scope:chat", "type:feature"]
     },
     "chat-feature-home": {
       "projectType": "library",
@@ -1068,7 +1093,8 @@
             ]
           }
         }
-      }
+      },
+      "tags": ["scope:chat", "type:feature"]
     },
     "chat-feature-shell": {
       "projectType": "library",
@@ -1109,7 +1135,8 @@
             ]
           }
         }
-      }
+      },
+      "tags": ["scope:chat", "type:feature"]
     },
     "chat-styles-shared": {
       "root": "libs/chat/styles-shared",
@@ -1141,7 +1168,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "chat-ui-chat-input": {
       "projectType": "library",
@@ -1182,7 +1210,8 @@
             ]
           }
         }
-      }
+      },
+      "tags": ["scope:chat", "type:ui"]
     },
     "chat-ui-messages-container": {
       "projectType": "library",
@@ -1223,13 +1252,15 @@
             ]
           }
         }
-      }
+      },
+      "tags": ["scope:chat", "type:ui"]
     },
     "shared-assets": {
       "root": "libs/shared/assets",
       "sourceRoot": "libs/shared/assets/src",
       "projectType": "library",
-      "targets": {}
+      "targets": {},
+      "tags": ["scope:shared", "type:assets"]
     },
     "shared-data-access": {
       "projectType": "library",
@@ -1270,7 +1301,8 @@
             ]
           }
         }
-      }
+      },
+      "tags": ["scope:shared", "type:data-access"]
     },
     "shared-environments": {
       "root": "libs/shared/environments",
@@ -1302,7 +1334,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["scope:shared", "type:environments"]
     },
     "shared-store": {
       "projectType": "library",
@@ -1343,13 +1376,15 @@
             ]
           }
         }
-      }
+      },
+      "tags": []
     },
     "shared-styles": {
       "root": "libs/shared/styles",
       "sourceRoot": "libs/shared/styles/src",
       "projectType": "library",
-      "targets": {}
+      "targets": {},
+      "tags": []
     },
     "shared-utils-array-partition": {
       "root": "libs/shared/utils-array-partition",
@@ -1381,7 +1416,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["scope:shared", "type:utils"]
     },
     "shared-utils-socket-constants": {
       "root": "libs/shared/utils-socket-constants",
@@ -1413,27 +1449,8 @@
             "passWithNoTests": true
           }
         }
-      }
-    }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/nest"
-  },
-  "defaultProject": "chat-api",
-  "generators": {
-    "@nrwl/angular:application": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
-    },
-    "@nrwl/angular:library": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest"
-    },
-    "@nrwl/angular:component": {
-      "style": "scss"
+      },
+      "tags": ["scope:shared", "type:util"]
     }
   }
 }

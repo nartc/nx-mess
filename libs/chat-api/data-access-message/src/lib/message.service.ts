@@ -1,6 +1,6 @@
 import { InjectMapper } from '@automapper/nestjs';
 import { Mapper } from '@automapper/types';
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import {
   BaseService,
@@ -35,7 +35,11 @@ export class MessageService extends BaseService<Message> {
 
     await this.create(newMessage);
 
-    const message: Message = await this.findById(newMessage.id).exec();
+    const message = await this.findById(newMessage.id).exec() as Message;
+
+    if (!message) {
+      throw new NotFoundException('No message found');
+    }
 
     return this.mapper.map(message, MessageDto, Message);
   }

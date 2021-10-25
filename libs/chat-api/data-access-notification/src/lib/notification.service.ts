@@ -27,10 +27,10 @@ export class NotificationService extends BaseService<Notification> {
   }
 
   async getAllNotifications(currentUserId: string): Promise<NotificationDto[]> {
-    const notifications: Notification[] = await this.findAll()
+    const notifications = await this.findAll()
       .where('receiver')
       .equals(this.toObjectId(currentUserId))
-      .exec();
+      .exec() as Notification[];
     return this.mapper.mapArray(notifications, NotificationDto, Notification);
   }
 }

@@ -60,6 +60,10 @@ export class UserService extends BaseService<User> {
   }
 
   async getUserByAuth0Id(auth0UserId: string): Promise<User> {
-    return await this.findOne().where('userId').equals(auth0UserId).exec();
+    const user = await this.findOne().where('userId').equals(auth0UserId).exec();
+    if (!user) {
+      throw new NotFoundException('No user found')
+    }
+    return user;
   }
 }

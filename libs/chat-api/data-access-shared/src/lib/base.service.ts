@@ -7,7 +7,7 @@ import {
   QueryOptions as MongooseQueryOptions,
   QueryWithHelpers,
   Types,
-  UpdateQuery,
+  UpdateQuery
 } from 'mongoose';
 import { BaseModel } from './base.model';
 
@@ -26,10 +26,10 @@ export type QueryList<TModel extends BaseModel> = QueryWithHelpers<
   Array<EnforceDocumentType<TModel>>,
   EnforceDocumentType<TModel>
 >;
-export type QueryItem<TModel extends BaseModel> = QueryWithHelpers<
-  EnforceDocumentType<TModel>,
-  EnforceDocumentType<TModel>
->;
+export type QueryItem<
+  TModel extends BaseModel,
+  TReturnType = EnforceDocumentType<TModel> | null
+> = QueryWithHelpers<TReturnType, EnforceDocumentType<TModel>>;
 
 export type ModelType<TModel extends BaseModel> = ReturnModelType<
   new (...args: unknown[]) => TModel
@@ -65,47 +65,55 @@ export abstract class BaseService<TModel extends BaseModel> {
     return new Types.ObjectId(id);
   }
 
-  createModel(doc?: Partial<TModel>) {
-    return new this.model(doc) as TModel;
+  createModel(doc?: Partial<TModel>): TModel {
+    return new this.model(doc);
   }
 
-  findAll(options?: QueryOptions) {
-    return this.model
-      .find()
-      .setOptions(BaseService.getQueryOptions(options)) as QueryList<TModel>;
+  findAll(options?: QueryOptions): QueryList<TModel> {
+    return this.model.find().setOptions(BaseService.getQueryOptions(options));
   }
 
-  findOne(options?: QueryOptions) {
+  findOne(options?: QueryOptions): QueryItem<TModel> {
     return this.model
       .findOne()
-      .setOptions(BaseService.getQueryOptions(options)) as QueryItem<TModel>;
+      .setOptions(BaseService.getQueryOptions(options));
   }
 
-  findById(id: string, options?: QueryOptions) {
+  findById(id: string, options?: QueryOptions): QueryItem<TModel> {
     return this.model
       .findById(this.toObjectId(id))
-      .setOptions(BaseService.getQueryOptions(options)) as QueryItem<TModel>;
+      .setOptions(BaseService.getQueryOptions(options));
   }
 
-  async create(item: TModel) {
+  async create(item: TModel): Promise<DocumentType<TModel> | null> {
     try {
-      return (await this.model.create(item)) as DocumentType<TModel>;
+      return await this.model.create(item);
     } catch (e) {
       BaseService.throwMongoError(e);
     }
-    return;
+    return null;
   }
 
-  deleteOne(options?: QueryOptions) {
+  deleteOne(options?: QueryOptions): QueryItem<TModel> {
     return this.model
       .findOneAndDelete()
-      .setOptions(BaseService.getQueryOptions(options)) as QueryItem<TModel>;
+      .setOptions(BaseService.getQueryOptions(options));
   }
 
-  deleteById(id: string, options?: QueryOptions) {
+  deleteById(id: string, options?: QueryOptions): QueryItem<TModel> {
     return this.model
-      .findByIdAndDelete(new Types.ObjectId(id))
-      .setOptions(BaseService.getQueryOptions(options)) as QueryItem<TModel>;
+      .findByIdAndDelete(this.toObjectId(id))
+      .setOptions(BaseService.getQueryOptions(options));
+  }
+
+  update(item: TModel, options?: QueryOptions): QueryItem<TModel> {
+    return this.model
+      .findByIdAndUpdate(
+        this.toObjectId(item.id),
+        { $set: item } as UpdateQuery<DocumentType<TModel>>,
+        { upsert: true, new: true }
+      )
+      .setOptions(BaseService.getQueryOptions(options));
   }
 
   updateById(
@@ -113,53 +121,55 @@ export abstract class BaseService<TModel extends BaseModel> {
     updateQuery: UpdateQuery<DocumentType<TModel>>,
     updateOptions: MongooseQueryOptions & { multi?: boolean } = {},
     options?: QueryOptions
-  ) {
+  ): QueryItem<TModel> {
     return this.updateByFilter(
-      { _id: new Types.ObjectId(id) } as FilterQuery<DocumentType<TModel>>,
+      { _id: this.toObjectId(id) } as FilterQuery<DocumentType<TModel>>,
       updateQuery,
       updateOptions,
       options
-    ) as QueryItem<TModel>;
+    );
   }
 
   updateByFilter(
     filter: FilterQuery<DocumentType<TModel>> = {},
     updateQuery: UpdateQuery<DocumentType<TModel>>,
-    updateOptions: MongooseQueryOptions = {},
+    updateOptions: Omit<MongooseQueryOptions, 'new'> = {},
     options?: QueryOptions
-  ) {
+  ): QueryItem<TModel> {
     return this.model
-      .findOneAndUpdate(filter, updateQuery, {
-        ...Object.assign({ omitUndefined: true }, updateOptions),
-        new: true,
-      })
-      .setOptions(
-        BaseService.getQueryOptions(options)
-      ) as unknown as QueryItem<TModel>;
+      .findOneAndUpdate(
+        filter,
+        updateQuery,
+        Object.assign({ new: true }, updateOptions)
+      )
+      .setOptions(BaseService.getQueryOptions(options));
   }
 
-  count(filter: FilterQuery<DocumentType<TModel>> = {}) {
-    return this.model.count(filter) as QueryWithHelpers<
-      number,
-      EnforceDocumentType<TModel>
-    >;
+  count(
+    filter: FilterQuery<DocumentType<TModel>> = {}
+  ): QueryItem<TModel, number> {
+    return this.model.count(filter);
   }
 
-  async countAsync(filter: FilterQuery<DocumentType<TModel>> = {}) {
+  async countAsync(
+    filter: FilterQuery<DocumentType<TModel>> = {}
+  ): Promise<number> {
     try {
-      return (await this.count(filter).exec()) as number;
+      return await this.count(filter).exec();
     } catch (e) {
       BaseService.throwMongoError(e);
     }
-    return;
+    return 0;
   }
 
-  async exists(filter: FilterQuery<DocumentType<TModel>> = {}) {
+  async exists(
+    filter: FilterQuery<DocumentType<TModel>> = {}
+  ): Promise<boolean> {
     try {
-      return (await this.model.exists(filter)) as boolean;
+      return await this.model.exists(filter);
     } catch (e) {
       BaseService.throwMongoError(e);
     }
-    return;
+    return false;
   }
 }

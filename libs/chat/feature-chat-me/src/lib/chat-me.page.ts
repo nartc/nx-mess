@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChatMeStore } from './chat-me.store';
 
 @Component({
   selector: 'nxc-chat-me',
@@ -8,13 +9,19 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
         <ion-title>About me</ion-title>
       </ion-toolbar>
     </ion-header>
-    <p>chat-me works!</p>
+
+    <ng-container *ngrxLet="vm$; let vm">
+      <ion-content>
+        <pre>{{ vm.user | json }}</pre>
+      </ion-content>
+    </ng-container>
   `,
   styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [ChatMeStore],
 })
-export class ChatMePage implements OnInit {
-  constructor() {}
+export class ChatMePage {
+  readonly vm$ = this.chatMeStore.vm$;
 
-  ngOnInit(): void {}
+  constructor(private chatMeStore: ChatMeStore) {}
 }

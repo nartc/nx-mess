@@ -1,4 +1,6 @@
 export enum ServerSocketEvents {
+  WhoIsTyping = 'WhoIsTyping',
+
   BroadcastGeneralMessage = 'BroadcastGeneralMessage',
   BroadcastGeneralMessageNotification = 'BroadcastGeneralMessageNotification',
 

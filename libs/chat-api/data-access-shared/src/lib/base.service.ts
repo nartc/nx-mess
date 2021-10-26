@@ -7,7 +7,7 @@ import {
   QueryOptions as MongooseQueryOptions,
   QueryWithHelpers,
   Types,
-  UpdateQuery
+  UpdateQuery,
 } from 'mongoose';
 import { BaseModel } from './base.model';
 

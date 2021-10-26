@@ -24,12 +24,14 @@ export class MessagesContainerStore extends ImmerComponentStore<MessagesContaine
   readonly vm$: Observable<MessagesContainerVm> = this.select(
     this.messages$,
     this.store.select(AuthSelectors.selectUser),
-    (messages, user) => ({
-      messages: messages.map((message) => ({
-        ...message,
-        isSelf: message.sender.userId === user.sub,
-      })),
-    }),
+    (messages, user) => {
+      return {
+        messages: messages.map((message) => ({
+          ...message,
+          isSelf: message.sender.userId === user.sub,
+        })),
+      };
+    },
     { debounce: true }
   );
 

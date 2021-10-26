@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { UsersApiService } from '@nx-mess/chat/data-access-api';
-import { concatMap, iif, map, mapTo, of, switchMap, take, tap } from 'rxjs';
+import { concatMap, defer, map, mapTo, of, switchMap, take, tap } from 'rxjs';
 import { AuthActions } from './auth.slice';
 
 @Injectable()
@@ -43,15 +43,16 @@ export class AuthEffect {
       this.actions$.pipe(
         ofType(AuthActions.check.success),
         concatMap(({ user }) =>
-          iif(
-            () => !!user,
-            this.usersApiService
-              .updateAuth0(user!.sub as string, {
-                picture: user!.picture as string,
-              })
-              .pipe(mapTo(user)),
-            of(user)
-          )
+          defer(() => {
+            if (!!user)
+              return this.usersApiService
+                .updateAuth0(user.sub as string, {
+                  picture: user.picture as string,
+                })
+                .pipe(mapTo(user));
+
+            return of(user);
+          })
         ),
         tap((user) => {
           if (!!user) {

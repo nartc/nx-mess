@@ -1213,6 +1213,48 @@
       },
       "tags": ["scope:chat", "type:ui"]
     },
+    "chat-ui-message": {
+      "projectType": "library",
+      "root": "libs/chat/ui-message",
+      "sourceRoot": "libs/chat/ui-message/src",
+      "prefix": "nxc",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/chat/ui-message"],
+          "options": {
+            "project": "libs/chat/ui-message/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/chat/ui-message/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/chat/ui-message/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/chat/ui-message"],
+          "options": {
+            "jestConfig": "libs/chat/ui-message/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/chat/ui-message/src/**/*.ts",
+              "libs/chat/ui-message/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:chat", "type:ui"]
+    },
     "chat-ui-messages-container": {
       "projectType": "library",
       "root": "libs/chat/ui-messages-container",
@@ -1254,6 +1296,48 @@
         }
       },
       "tags": ["scope:chat", "type:ui"]
+    },
+    "chat-ui-who-is-typing": {
+      "projectType": "library",
+      "root": "libs/chat/ui-who-is-typing",
+      "sourceRoot": "libs/chat/ui-who-is-typing/src",
+      "prefix": "nxc",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/chat/ui-who-is-typing"],
+          "options": {
+            "project": "libs/chat/ui-who-is-typing/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/chat/ui-who-is-typing/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/chat/ui-who-is-typing/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/chat/ui-who-is-typing"],
+          "options": {
+            "jestConfig": "libs/chat/ui-who-is-typing/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/chat/ui-who-is-typing/src/**/*.ts",
+              "libs/chat/ui-who-is-typing/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
     },
     "shared-assets": {
       "root": "libs/shared/assets",

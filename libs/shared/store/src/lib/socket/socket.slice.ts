@@ -3,7 +3,7 @@ import { createSlice } from 'ngrx-slice';
 import { createSliceEntityAdapter } from 'ngrx-slice/entity';
 
 const socketAdapter = createSliceEntityAdapter<UserDto>({
-  selectId: (model) => model.id,
+  selectId: (model) => model.userId,
 });
 
 const { name, reducer, actions, selectors } = createSlice({

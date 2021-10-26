@@ -11,7 +11,13 @@ import { MessagesContainerStore } from './messages-container.store';
   selector: 'nxc-messages-container',
   template: `
     <ng-container *ngrxLet="vm$; let vm">
-      <pre>{{ vm | json }}</pre>
+      <div class="flex flex-col gap-4 py-4">
+        <nxc-message
+          *ngFor="let message of vm.messages; trackBy: messageTracker"
+          [message]="message"
+          [isSelf]="message.isSelf"
+        ></nxc-message>
+      </div>
     </ng-container>
   `,
   styles: [],
@@ -28,4 +34,8 @@ export class MessagesContainerComponent implements OnInit {
   constructor(private messagesContainerStore: MessagesContainerStore) {}
 
   ngOnInit(): void {}
+
+  messageTracker(_: number, message: MessageDto) {
+    return message.id;
+  }
 }

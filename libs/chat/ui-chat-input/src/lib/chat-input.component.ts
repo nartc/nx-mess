@@ -6,7 +6,7 @@ import {
   Output,
 } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { debounce, of, timer } from 'rxjs';
+import { debounce, of, throttle, timer } from 'rxjs';
 import { ChatInputStore } from './chat-input.store';
 
 @Component({
@@ -40,11 +40,13 @@ export class ChatInputComponent implements OnInit {
   constructor(private chatInputStore: ChatInputStore) {}
 
   ngOnInit(): void {
-    this.chatInputStore.initEffect();
+    const valueChanges$ = this.messageControl.valueChanges;
+
     this.chatInputStore.setMessage(
-      this.messageControl.valueChanges.pipe(
-        debounce((value) => (value ? timer(250) : of(null)))
-      )
+      valueChanges$.pipe(debounce((value) => (value ? timer(250) : of(null))))
+    );
+    this.chatInputStore.typingEffect(
+      valueChanges$.pipe(throttle((value) => (value ? timer(250) : of(null))))
     );
   }
 

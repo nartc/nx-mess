@@ -80,8 +80,12 @@
       "@nx-mess/chat/feature-shell": ["libs/chat/feature-shell/src/index.ts"],
       "@nx-mess/chat/styles-shared": ["libs/chat/styles-shared/src/index.ts"],
       "@nx-mess/chat/ui-chat-input": ["libs/chat/ui-chat-input/src/index.ts"],
+      "@nx-mess/chat/ui-message": ["libs/chat/ui-message/src/index.ts"],
       "@nx-mess/chat/ui-messages-container": [
         "libs/chat/ui-messages-container/src/index.ts"
+      ],
+      "@nx-mess/chat/ui-who-is-typing": [
+        "libs/chat/ui-who-is-typing/src/index.ts"
       ],
       "@nx-mess/shared-data-access-temp": [
         "libs/shared/data-access-temp/src/index.ts"

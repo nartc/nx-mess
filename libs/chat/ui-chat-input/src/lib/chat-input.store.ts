@@ -44,15 +44,7 @@ export class ChatInputStore extends ImmerComponentStore<ChatInputState> {
     state.message = message;
   });
 
-  readonly initEffect = this.effect(($) =>
-    $.pipe(
-      tap(() => {
-        this.messageChangedEffect(this.message$);
-      })
-    )
-  );
-
-  readonly messageChangedEffect = this.effect<string>((message$) =>
+  readonly typingEffect = this.effect<string>((message$) =>
     message$.pipe(
       tap((message) => {
         this.patchState({

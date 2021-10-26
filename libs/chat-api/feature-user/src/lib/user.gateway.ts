@@ -18,6 +18,7 @@ import * as io from 'socket.io';
 @WebSocketGateway()
 export class UserGateway extends ConnectedGateway {
   private readonly connectedUserInfo = new Map<string, UserDto>();
+  private readonly typingGroup = new Set<string>();
 
   constructor(
     @InjectMapper() private mapper: Mapper,
@@ -54,7 +55,32 @@ export class UserGateway extends ConnectedGateway {
   ) {
     const user = await this.userService.getUserByAuth0Id(userId);
     if (user) {
+      this.typingGroup.delete(user.userId);
+      client.broadcast.emit(
+        ServerSocketEvents.WhoIsTyping,
+        Array.from(this.typingGroup.values())
+      );
       client.broadcast.emit(ServerSocketEvents.UserOffline, user);
+    }
+  }
+
+  @SubscribeMessage(ClientSocketEvents.Typing)
+  async handleClientTyping(
+    @ConnectedSocket() client: io.Socket,
+    @MessageBody() whoIsTyping: { isTyping: boolean; userId: string }
+  ) {
+    const connectedUser = this.connectedUserInfo.get(client.id);
+    if (connectedUser && connectedUser.userId === whoIsTyping.userId) {
+      if (whoIsTyping.isTyping) {
+        this.typingGroup.add(connectedUser.userId);
+      } else {
+        this.typingGroup.delete(connectedUser.userId);
+      }
+
+      client.broadcast.emit(
+        ServerSocketEvents.WhoIsTyping,
+        Array.from(this.typingGroup.values())
+      );
     }
   }
 }
